@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_profitability_report_list" model="ir.ui.view">
+        <field name="name">profitability.report.list</field>
+        <field name="model">profitability.report</field>
+        <field name="arch" type="xml">
+            <list string="Profitability" create="0" edit="0" delete="0">
+                <field name="date"/>
+                <button name="action_open_timesheet" type="object" string="Open Timesheet" icon="fa-external-link"/>
+                <field name="employee_id"/>
+                <field name="project_id"/>
+                <field name="partner_id"/>
+                <field name="hours" sum="Total Hours"/>
+                <field name="hourly_rate" avg="Avg Rate/hr"/>
+                <field name="hourly_cost" avg="Avg Cost/hr"/>
+                <field name="revenue" sum="Revenue"/>
+                <field name="cost" sum="Total Cost"/>
+                <field name="profit" sum="Total Profit"
+                       decoration-danger="profit &lt; 0"
+                       decoration-success="profit &gt; 0"
+                       decoration-bf="profit != 0"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_profitability_report_pivot" model="ir.ui.view">
+        <field name="name">profitability.report.pivot</field>
+        <field name="model">profitability.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Profitability">
+                <field name="employee_id" type="row"/>
+                <field name="date" type="col" interval="month"/>
+                <field name="hours" type="measure"/>
+                <field name="revenue" type="measure"/>
+                <field name="cost" type="measure"/>
+                <field name="profit" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_profitability_report_graph" model="ir.ui.view">
+        <field name="name">profitability.report.graph</field>
+        <field name="model">profitability.report</field>
+        <field name="arch" type="xml">
+            <graph string="Profitability" type="bar">
+                <field name="employee_id"/>
+                <field name="profit" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_profitability_report_search" model="ir.ui.view">
+        <field name="name">profitability.report.search</field>
+        <field name="model">profitability.report</field>
+        <field name="arch" type="xml">
+            <search string="Profitability">
+                <field name="employee_id"/>
+                <field name="project_id"/>
+                <field name="partner_id"/>
+                <filter string="This Month" name="this_month"
+                        domain="[('date','&gt;=', context_today().strftime('%Y-%m-01'))]"/>
+                <filter string="This Year" name="this_year"
+                        domain="[('date','&gt;=', context_today().strftime('%Y-01-01'))]"/>
+                <separator/>
+                <filter string="Consultant" name="group_employee" context="{'group_by': 'employee_id'}"/>
+                <filter string="Project" name="group_project" context="{'group_by': 'project_id'}"/>
+                <filter string="Customer" name="group_partner" context="{'group_by': 'partner_id'}"/>
+                <filter string="Month" name="group_month" context="{'group_by': 'date:month'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_profitability_report" model="ir.actions.act_window">
+        <field name="name">Profitability - Detail</field>
+        <field name="res_model">profitability.report</field>
+        <field name="view_mode">pivot,list,graph,form</field>
+        <field name="search_view_id" ref="view_profitability_report_search"/>
+        <field name="context">{'search_default_group_employee': 1}</field>
+    </record>
+
+    <record id="view_profitability_report_form" model="ir.ui.view">
+        <field name="name">profitability.report.form</field>
+        <field name="model">profitability.report</field>
+        <field name="arch" type="xml">
+            <form string="Profitability Detail" create="0" edit="0" delete="0">
+                <header><button name="action_open_timesheet" type="object" string="Open Timesheet" class="oe_highlight"/></header>
+                <sheet>
+                    <div class="alert alert-info" role="note">Revenue is this entry's share of project allocated hours × project rate. Cost is logged hours × the employee's current hourly cost. Source timesheet Revenue may use a different calculation.</div>
+                    <group>
+                    <group><field name="timesheet_id"/><field name="date"/><field name="employee_id"/><field name="project_id"/><field name="partner_id"/><field name="company_id"/></group>
+                    <group><field name="hours"/><field name="hourly_rate"/><field name="hourly_cost"/><field name="revenue"/><field name="cost"/><field name="profit"/></group>
+                </group></sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

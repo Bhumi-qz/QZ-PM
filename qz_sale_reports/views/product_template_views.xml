@@ -1,0 +1,16 @@
+<odoo>
+    <record id="qz_sale_reports_inherit_product_template_form_view" model="ir.ui.view">
+        <field name="name">sale.reports.inherit.product.template.form.view</field>
+        <field name="model">product.template</field>
+        <field name="priority">5</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <div name="options" position='inside'>
+                <span class="d-inline-flex" invisible="type == 'combo'">
+                    <field name="customisation"/>
+                    <label for="customisation"/>
+                </span>
+            </div>
+        </field>
+    </record>
+</odoo>

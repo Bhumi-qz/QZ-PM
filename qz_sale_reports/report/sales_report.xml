@@ -1,0 +1,52 @@
+<odoo>
+    <!-- Paper Formats -->
+    <record id="paperformat_sales_reference" model="report.paperformat">
+        <field name="name">QZ Sales Proposal Reference A4</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">38</field>
+        <field name="margin_bottom">25.4</field>
+        <field name="margin_left">25.4</field>
+        <field name="margin_right">17.48</field>
+        <field name="header_spacing">10</field>
+        <field name="dpi">96</field>
+        <field name="disable_shrinking" eval="True"/>
+    </record>
+    <record id="paperformat_amc_reference" model="report.paperformat">
+        <field name="name">QZ AMC Agreement Reference A4</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">35</field>
+        <field name="margin_bottom">27.16</field>
+        <field name="margin_left">25</field>
+        <field name="margin_right">25</field>
+        <field name="header_spacing">8</field>
+        <field name="dpi">96</field>
+        <field name="disable_shrinking" eval="True"/>
+    </record>
+    <!-- Report Actions -->
+    <!-- AMC Agreement -->
+    <record id="action_report_amc" model="ir.actions.report">
+        <field name="name">QZ AMC Agreement</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">qz_sale_reports.report_amc</field>
+        <field name="report_file">qz_sale_reports.report_amc</field>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_amc_reference"/>
+        <field name="print_report_name">'AMC Agreement - %s' % object.name</field>
+    </record>
+    <!-- Sales Proposal -->
+    <record id="action_report_sale_proposal" model="ir.actions.report">
+        <field name="name">QZ Sales Proposal</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">qz_sale_reports.report_sale_proposal</field>
+        <field name="report_file">qz_sale_reports.report_sale_proposal</field>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_sales_reference"/>
+        <field name="print_report_name">'Sales Proposal - %s' % object.name</field>
+    </record>
+</odoo>

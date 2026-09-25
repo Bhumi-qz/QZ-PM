@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Kept inactive so upgrading an older installation removes the former
+         standalone launcher entry without leaving an orphaned menu behind. -->
+    <menuitem id="menu_profitability_root"
+              name="Profitability"
+              parent="spreadsheet_dashboard.spreadsheet_dashboard_menu_root"
+              active="False"
+              sequence="100"/>
+
+</odoo>

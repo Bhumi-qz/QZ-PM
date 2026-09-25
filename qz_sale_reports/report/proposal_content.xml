@@ -1,0 +1,770 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <template id="proposal_content">
+        <div class="qz-cover">
+            <img class="qz-cover-art" src="/qz_sale_reports/static/src/img/cover.png" alt=""/>
+            <div class="qz-brand">
+                <img t-if="doc.company_id.logo" t-att-src="image_data_uri(doc.company_id.logo)" alt="Company logo"/>
+            </div>
+            <div class="qz-cover-title">
+                <h2 t-field="doc.company_id.name"/>
+                <h1>Odoo ERP Implementation Proposal</h1>
+                <h2 t-field="doc.partner_id.name"/>
+                <img t-if="doc.partner_id.image_1920" t-att-src="image_data_uri(doc.partner_id.image_1920)"
+                     alt="Customer logo"/>
+                <p t-field="doc.date_order" t-options="{'widget':'date','format':'EEEE, d MMMM yyyy'}" style=""/>
+            </div>
+            <div class="qz-cover-contacts">
+                <span t-field="doc.company_id.website"/>
+                |
+                <span t-field="doc.company_id.email"/>
+                <div t-field="doc.company_id.partner_id"
+                     t-options="{'widget':'contact','fields':['address'],'no_marker':True}"/>
+            </div>
+        </div>
+        <div class="qz-body">
+            <section class="qz-control">
+                <h2>Document Control</h2>
+                <table class="qz-table">
+                    <tbody>
+                        <tr>
+                            <td>Document Type</td>
+                            <td>Proposal</td>
+                        </tr>
+                        <tr>
+                            <td>Service</td>
+                            <td>Implementation of Odoo</td>
+                        </tr>
+                        <tr>
+                            <td>Version</td>
+                            <td>
+                                <span t-field="doc.qz_doc_version"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Classification</td>
+                            <td>Confidential</td>
+                        </tr>
+                        <tr>
+                            <td>Client Name</td>
+                            <td>
+                                <span t-field="doc.partner_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date of Submission</td>
+                            <td>
+                                <span t-field="doc.date_order" t-options="{'widget':'date','format':'d MMMM yyyy'}"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Distribution List</h3>
+                <table class="qz-table">
+                    <tbody>
+                        <tr>
+                            <th>Version</th>
+                            <th>Date</th>
+                            <th>Reviewed By</th>
+                        </tr>
+                        <tr>
+                            <td>0.1</td>
+                            <td>
+                                <span t-field="doc.date_order" t-options="{'widget':'date','format':'d MMMM yyyy'}"/>
+                            </td>
+                            <td>
+                                <span t-field="doc.qz_reviewed_by_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Version</th>
+                            <th>Date</th>
+                            <th>Authorized By</th>
+                        </tr>
+                        <tr>
+                            <td>0.1</td>
+                            <td>
+                                <span t-field="doc.date_order" t-options="{'widget':'date','format':'d MMMM yyyy'}"/>
+                            </td>
+                            <td>
+                                <span t-field="doc.qz_authorized_by_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Version</th>
+                            <th>Date</th>
+                            <th>Recipients</th>
+                        </tr>
+                        <tr>
+                            <td>0.1</td>
+                            <td>
+                                <span t-field="doc.date_order" t-options="{'widget':'date','format':'d MMMM yyyy'}"/>
+                            </td>
+                            <td>
+                                <span t-field="doc.partner_id.name"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Disclaimer</h3>
+                <p style="">The content of this document is confidential in nature and therefore we expect that
+                    <span t-field="doc.partner_id.name"/>
+                    shall observe strict confidentiality in protecting information contained in it. At no time, shall
+                    the company and its employees reproduce, part with or disclose contents of this proposal to any
+                    person other than their own employees.
+                </p>
+                <div class="qz-keep">
+                    <h3>Contact Information</h3>
+                    <table class="qz-table qz-contact">
+                        <tr>
+                            <th>
+                                <span t-field="doc.partner_id.name"/>
+                            </th>
+                            <th>
+                                <span t-field="doc.company_id.name"/>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div t-field="doc.partner_id"
+                                     t-options="{'widget':'contact','fields':['address'],'no_marker':True}"/>
+                            </td>
+                            <td>
+                                <div t-field="doc.company_id.partner_id"
+                                     t-options="{'widget':'contact','fields':['address'],'no_marker':True}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <h2 style="page-break-before:always" class="qz-heading qz-heading-level-1">
+                <span class="qz-heading-number">1</span>Executive Summary
+            </h2>
+            <h3 style="" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">1.1</span>Objective of the Document
+            </h3>
+            <p style="text-align:justify">
+                <span t-field="doc.partner_id.name"/>
+                is requesting a proposal for the provision and deployment of a business management system, enabling them
+                to oversee, monitor, track and control all business operations.
+            </p>
+            <p style="text-align:justify">The business management system should be user-friendly with an intuitive web
+                application that can be used on Windows, iOS and android. Employees should be able to handle any kind of
+                administrative request easily and in an efficient manner. The database must be safeguarded with the
+                highest security standards (technical and role-wise) and all data should be interpreted on a
+                comprehensive dashboard to empower human resources management.
+            </p>
+            <h3 style="" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">1.2</span>Solution Overview
+            </h3>
+            <h4 style=";font-weight:300;color:#1f3763" class="qz-heading qz-heading-level-3">
+                <span class="qz-heading-number">1.2.1</span>Project Implementation Overview
+            </h4>
+            <div class="qz-editable" t-out="doc._qz_document_html('qz_implementation_overview')"/>
+            <p style="text-align:justify">
+                <span t-field="doc.company_id.name"/>
+                will deliver a fully operational management system that will be configured, tested, loaded, and
+                operationally ready in line with the project milestones and in accordance with the requirements and
+                statutory regulations.
+            </p>
+            <p style="text-align:justify">The delivered system will be scalable, real‐time, interoperable and will
+                support different protocols. It will ensure data security and will have a design resilience in case of
+                failures.
+            </p>
+            <p style="text-align:justify">
+                <span t-field="doc.company_id.name"/>
+                will deliver the required features (both functional and non‐functional), which will provide smart and
+                intelligent outcomes with enhanced operational efficiency.
+            </p>
+            <h2 style="page-break-before:always" class="qz-heading qz-heading-level-1">
+                <span class="qz-heading-number">2</span>Corporate Identity
+            </h2>
+            <h3 style="" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">2.1</span>
+                <span t-field="doc.company_id.name"/>
+            </h3>
+            <p style="text-align:justify">
+                <span t-field="doc.company_id.name"/>
+                is a regional software provider that brings a decade of leadership and innovation combined in Enterprise
+                Resource Planning, Mobile Applications, and Digital Transformation Solutions.
+            </p>
+            <p style="text-align:justify">With its distinctive knowledge in advanced technology and conducted by its
+                microservices architecture,
+                <span t-field="doc.company_id.name"/>
+                emphasizes covering all business needs related to various sectors and industries such as:
+            </p>
+            <ul class="qz-bullets">
+                <li>Contracting</li>
+                <li>Manufacturing</li>
+                <li>Logistics</li>
+                <li>Real Estate</li>
+                <li>Retail</li>
+                <li>Services</li>
+                <li>Wholesale</li>
+            </ul>
+            <p style="text-align:justify">Through a well-planned service offering portfolio, we work on generating
+                specific business solutions while combining cutting-edge innovations such as AI, IoT, and machine
+                learning.
+            </p>
+            <p style="text-align:justify">With offices located in Dubai and with years of expertise,
+                <span t-field="doc.company_id.name"/>
+                managed to become a trusted leader in information governance supported by an ever-increasing legal and
+                compliant environment.
+            </p>
+            <h4 style="page-break-before:always;font-weight:300;color:#1f3763" class="qz-heading qz-heading-level-3">
+                <span class="qz-heading-number">2.1.1</span>
+                <span t-field="doc.company_id.name"/>
+                Client References
+            </h4>
+            <div class="qz-editable qz-client-references" t-field="doc.qz_client_references_html"/>
+            <style>.qz-client-references img { max-width:100%; height:auto; }</style>
+            <h2 style="page-break-before:always" class="qz-heading qz-heading-level-1">
+                <span class="qz-heading-number">3</span>Proposed Solution Details and Scope
+            </h2>
+            <div class="qz-editable" t-out="doc._qz_document_html('qz_propsed_solution_details')"/>
+            <h3 style="" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">3.1</span>Odoo Implementation Scope
+            </h3>
+            <p style="font-weight:700">Business:
+                <span t-field="doc.qz_business_description"/>
+            </p>
+            <p style="font-weight:700">Solution Type:
+                <span t-field="doc.sale_order_template_id"/>
+            </p>
+            <h4 class="qz-heading qz-heading-level-3" style=";font-weight:300;color:#1f3763">
+                <span class="qz-heading-number">3.1.1</span>MODULES
+            </h4>
+            <ul>
+                <li t-foreach="doc._qz_proposal_lines()"
+                    t-as="line">
+                    <span t-field="line.product_id.name"/>
+                </li>
+            </ul>
+            <h4 style=";font-weight:300;color:#1f3763" class="qz-heading qz-heading-level-3">
+                <span class="qz-heading-number">3.1.2</span>SCOPE
+            </h4>
+            <div class="qz-editable" t-out="doc._qz_document_html('qz_scope_html')"/>
+            <t t-set="customisation_lines" t-value="doc._qz_proposal_lines(customisation=True)"/>
+            <section t-if="customisation_lines" class="qz-customisations">
+                <h5 style=";font-weight:300;color:#1f3763">
+                    <span class="qz-heading-number"/>Customisation
+                </h5>
+                <t t-foreach="customisation_lines" t-as="line">
+                    <t t-set="description" t-value="line._qz_customisation_description()"/>
+                    <div t-if="description" style="white-space:pre-wrap;overflow-wrap:break-word;word-wrap:break-word;"
+                         t-out="description"/>
+                </t>
+            </section>
+            <h2 style="page-break-before:always" class="qz-heading qz-heading-level-1">
+                <span class="qz-heading-number">4</span>Project Implementation Approach
+            </h2>
+            <h3 style="" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">4.1</span>Professional Services Overview
+            </h3>
+            <p style="text-align:justify">A turnkey solution that includes software licenses, installation,
+                implementation and after sales support will be offered by<span t-field="doc.company_id.name"/>.
+            </p>
+            <p style="text-align:justify">
+                <span t-field="doc.company_id.name"/>
+                will provide necessary manpower to carry out this project covering the following services:
+            </p>
+            <ul class="qz-bullets">
+                <li>Licensing and hosting</li>
+                <li>Business Requirements and Consultancy</li>
+                <li>Solution Architecture</li>
+                <li>Configuration</li>
+                <li>Customizations agreed in the scope</li>
+                <li>Deployment</li>
+                <li>Testing and Quality Assurance/Control</li>
+                <li>Training and Documentation</li>
+                <li>Support and Companionship</li>
+                <li>1 month free of charge including companionship after go-live.</li>
+                <li>Yearly paid support and maintenance contract upon the companionship phase completion.</li>
+            </ul>
+            <h3 style="page-break-before:always" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">4.2</span>Out of Scope Tasks
+            </h3>
+            <div class="qz-editable" t-out="doc._qz_document_html('qz_out_of_scope_html')"/>
+            <h3 style="" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">4.3</span>Project Assumptions
+            </h3>
+            <div class="qz-editable" t-out="doc._qz_document_html('qz_assumptions_html')"/>
+            <div class="qz-keep">
+                <h3 style="" class="qz-heading qz-heading-level-2">
+                    <span class="qz-heading-number">4.4</span>Project Phases
+                </h3>
+                <table class="qz-table">
+                    <tr>
+                        <td style="font-weight:700;width:46.13%;text-align:left">
+                            <p style="">Phase</p>
+                        </td>
+                        <td style="width:53.87%;text-align:left">
+                            <p style="text-align:center">Goals</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;width:46.13%;text-align:left">
+                            <p style="">Mobilization Phase</p>
+                        </td>
+                        <td style="width:53.87%;text-align:left">
+                            <ul class="qz-bullets">
+                                <li>Kick off the Project</li>
+                                <li>Gather Requirements</li>
+                                <li>Business &amp; Gap Analysis</li>
+                                <li>Review existing inventory dataset</li>
+                                <li>Review the milestones and timelines</li>
+                                <li>Propose a data migration plan</li>
+                                <li>Propose an integration plan</li>
+                                <li>Solution architecture</li>
+                                <li>Propose a project plan</li>
+                                <li>Infrastructure readiness and testing on Odoo.sh</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;width:46.13%;text-align:left">
+                            <p style="">Configuration, Customization &amp; UAT</p>
+                        </td>
+                        <td style="width:53.87%;text-align:left">
+                            <ul class="qz-bullets">
+                                <li>System Configuration</li>
+                                <li>System Customization</li>
+                                <li>Testing and Quality assurance</li>
+                                <li>UAT and bug fixing</li>
+                                <li>Master data upload and Opening Balances</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;width:46.13%;text-align:left">
+                            <p style="">System ‘Go live’</p>
+                        </td>
+                        <td style="width:53.87%;text-align:left">
+                            <ul class="qz-bullets">
+                                <li>Users Training</li>
+                                <li>System Go-Live</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;width:46.13%;text-align:left">
+                            <p style="">System ‘In service’ phase</p>
+                        </td>
+                        <td style="width:53.87%;text-align:left">
+                            <ul class="qz-bullets">
+                                <li>Live Operations</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;width:46.13%;text-align:left">
+                            <p style="">Maintenance &amp; Support Services</p>
+                        </td>
+                        <td style="width:53.87%;text-align:left">
+                            <ul class="qz-bullets">
+                                <li>Comprehensive maintenance and support services</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h2 style="page-break-before:always" class="qz-heading qz-heading-level-1">
+                <span class="qz-heading-number">5</span>Project Training
+            </h2>
+            <h3 style="" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">5.1</span>Training Summary
+            </h3>
+            <p style="text-align:justify">
+                <span t-field="doc.company_id.name"/>
+                will be delivering online training including trainers of the frontline employees and admin/system
+                administrator<span t-field="doc.partner_id.name"/>.
+            </p>
+            <p style="text-align:justify">Training will be delivered in English.</p>
+            <p style="text-align:justify">The Training Plan identifies the key elements and steps necessary for training
+                the staff on the use of the components of the system proposed by
+                <span t-field="doc.company_id.name"/>
+                to highlight the main functionalities and benefits.
+            </p>
+            <p style="text-align:justify">After the final deployment of the application,
+                <span t-field="doc.company_id.name"/>
+                conducts a thorough training covering all the modules of the solution ensuring that the solution is
+                fully grasped by all users prior to going live.
+            </p>
+            <h3 style="" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">5.2</span>Training Objectives
+            </h3>
+            <p style="text-align:justify">The training courses allow the users to discover the solution, operate, and
+                manage its various functions. The training covers the utilization as well as parameterization and
+                administration of the application to optimize and streamline the operations. The main objectives are:
+            </p>
+            <ul class="qz-bullets">
+                <li>Enable users and administrator
+                    <span t-field="doc.partner_id.name"/>
+                    to gain an overall understanding of the scope and purpose of the overall solution.
+                </li>
+                <li>Provide each user with hands-on experience around the system’s functions.</li>
+                <li>Share knowledge and functional use of the solution while ensuring that
+                    <span t-field="doc.partner_id.name"/>
+                    has the total ownership to carry out all duties and operations by themselves.
+                </li>
+            </ul>
+            <h3 style="" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">5.3</span>Roles &amp; Responsibilities
+            </h3>
+            <p style="">Admin (system administrator<span t-field="doc.partner_id.name"/>) is responsible for keeping the
+                systems operational, keeping the content up-to-date and safe by performing regular backups.
+            </p>
+            <p style="text-align:justify">Trainers of the frontline users are responsible for training the remaining
+                employees of the team.
+            </p>
+            <h2 style="page-break-before:always" class="qz-heading qz-heading-level-1">
+                <span class="qz-heading-number">6</span>Post Implementation Services
+            </h2>
+            <h3 style="" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">6.1</span>Support &amp; Maintenance Services Plan
+            </h3>
+            <p style="text-align:justify">
+                <span t-field="doc.company_id.name"/>
+                provides warranty services for one (1) month upon project go-live and after-sales maintenance services
+                for one (1) year upon the warranty expiration, through an Annual Maintenance Contract.
+            </p>
+            <p style="text-align:justify">
+                <span t-field="doc.company_id.name"/>
+                will be responsible in maintaining all system functionalities and ensure that integrations are up and
+                running.
+                <span t-field="doc.company_id.name"/>
+                customer support services cover phone, portal, e-mail and online support. On-Site support is not
+                required.
+            </p>
+            <p style="">The below SLA is applicable to all tickets that are initiated during the support period.</p>
+            <p style="">The services cover the following issues:</p>
+            <ul class="qz-bullets">
+                <li>Core solution Bugs.</li>
+                <li>Issues with operating the application as per the agreed functional specifications document signed
+                    and agreed between both parties.
+                </li>
+            </ul>
+            <p style="text-align:justify">Version Upgrades are not covered into the support and maintenance services.
+                For any version upgrade, a change request should be agreed on between
+                <span t-field="doc.company_id.name"/>
+                and
+                <span t-field="doc.partner_id.name"/>
+                and will be quoted separately.
+            </p>
+            <p style="">
+                <span t-field="doc.company_id.name"/>
+                will reserve the right to not to provide any Maintenance and Support cases where it appears that:
+            </p>
+            <ul class="qz-bullets">
+                <li>In the event the payment or services is past due,
+                    <span t-field="doc.company_id.name"/>
+                    at its discretion may suspend the rights of the licensee to receive the services for which payment
+                    is past due until full payment is made.
+                </li>
+                <li>The Solution is amended/changed by non-authorized party without prior notice to
+                    <span t-field="doc.company_id.name"/>
+                    support contact person.
+                </li>
+                <li>An error of the Solution has occurred because of the user’s negligent conduct or incorrect use of
+                    the solution.
+                </li>
+            </ul>
+            <h3 style="page-break-before:always" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">6.2</span>Response Mechanism
+            </h3>
+            <p style="">
+                <span t-field="doc.company_id.name"/>
+                incident response time is divided according to the following criteria:
+            </p>
+            <ul class="qz-bullets">
+                <li>
+                    <strong>Level 1 severity: Serious Incidents;</strong>
+                    these incidents happen due to a system crash. They are of highest priority, thus having a response
+                    time of four (4) working hours. The objective is to have a workaround within the eight (8) working
+                    hour’s timeframe else if it is impossible will be escalated within
+                    <span t-field="doc.company_id.name"/>
+                    and
+                    <span t-field="doc.partner_id.name"/>
+                    with the appropriate action plan.
+                </li>
+                <li>
+                    <strong>Level 2 severity: Average Incidents;</strong>
+                    these incidents are not as serious, thus having less priority. They can be system configuration
+                    problem. The response time is eight (8) working hours. The objective is to have a workaround within
+                    the twenty-four (24) working hour’s timeframe.
+                </li>
+                <li>
+                    <strong>Level 3 severity: Minor Incidents and Improvements;</strong>
+                    these incidents include adding new functionalities to the system. These are minor changes, hence not
+                    being urgent. The response time is two (2) working days and implementation action plan is provided
+                    to the client’s approval.
+                </li>
+            </ul>
+            <h3 style="" class="qz-heading qz-heading-level-2">
+                <span class="qz-heading-number">6.3</span>Summary
+            </h3>
+            <table class="qz-table">
+                <tr>
+                    <td style="font-weight:700;width:56.26%;text-align:left">
+                        <p style="">Service</p>
+                    </td>
+                    <td style="width:43.74%;text-align:left">
+                        <p style="">SLA</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700;width:56.26%;text-align:left">
+                        <p style="">Email Support</p>
+                    </td>
+                    <td style="width:43.74%;text-align:left">
+                        <p style="">Yes</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700;width:56.26%;text-align:left">
+                        <p style="">Phone Support</p>
+                    </td>
+                    <td style="width:43.74%;text-align:left">
+                        <p style="">Yes</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700;width:56.26%;text-align:left">
+                        <p style="">Portal Ticketing Support</p>
+                    </td>
+                    <td style="width:43.74%;text-align:left">
+                        <p style="">Yes</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700;width:56.26%;text-align:left">
+                        <p style="">Remote support over remote connection</p>
+                    </td>
+                    <td style="width:43.74%;text-align:left">
+                        <p style="">Yes</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700;width:56.26%;text-align:left">
+                        <p style="">Support hours coverage</p>
+                    </td>
+                    <td style="width:43.74%;text-align:left">
+                        <p style="">From 09:00 till 17:00 (UAE time)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700;width:56.26%;text-align:left">
+                        <p style="">Warranty</p>
+                    </td>
+                    <td style="width:43.74%;text-align:left">
+                        <p style="">1 month.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700;width:56.26%;text-align:left">
+                        <p style="">Maintenance period</p>
+                    </td>
+                    <td style="width:43.74%;text-align:left">
+                        <p style="">1-year subject to contract signing</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700;width:56.26%;text-align:left">
+                        <p style="">Renewal Term</p>
+                    </td>
+                    <td style="width:43.74%;text-align:left">
+                        <p style="">Upon contract expiry</p>
+                    </td>
+                </tr>
+            </table>
+            <section class="qz-commercials" style="page-break-before:always">
+                <h2 style="" class="qz-heading qz-heading-level-1">
+                    <span class="qz-heading-number">7</span>Commercials
+                </h2>
+                <p style="">The proposed commercials do not include:</p>
+                <ul class="qz-bullets">
+                    <li>Hardware tools.</li>
+                    <li>Any kind of Taxes.</li>
+                    <li>Modules not mentioned in this agreement.</li>
+                </ul>
+                <p style="text-align:justify">Any requirement from the above list will be charged separately depending
+                    on the needed work effort.
+                </p>
+                <h3 style="" class="qz-heading qz-heading-level-2">
+                    <span class="qz-heading-number">7.1</span>Summary Commercials
+                </h3>
+                <ol class="qz-bullets" style="list-style-type:decimal;">
+                    <li>
+                        <strong>ODOO IMPLEMENTATION FEE</strong>
+                        -
+                    </li>
+                </ol>
+                <t t-set="global_discount" t-value="-sum(doc._qz_discount_lines().mapped('price_total'))"/>
+                <table class="qz-table">
+                    <tr>
+                        <td style="font-weight:700;width:65.67%;text-align:left">
+                            <p style="">Service Description</p>
+                        </td>
+                        <td style="width:12.31%;text-align:left">
+                            <p style="text-align:center">Timeline</p>
+                        </td>
+                        <td style="width:22.02%;text-align:left">
+                            <p style="text-align:center">Price (AED)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;width:65.67%;text-align:left">
+                            <p style="">Odoo Implementation Fee for Modules and Scope</p>
+                        </td>
+                        <td style="width:12.31%;text-align:left">
+                            <p style="text-align:center">
+                                <span t-field="doc.qz_timeline"/>
+                            </p>
+                        </td>
+                        <td style="width:22.02%;text-align:left">
+                            <p style="text-align:center">
+                                <span t-out="doc.amount_total + global_discount"
+                                      t-options="{'widget':'monetary','display_currency':doc.currency_id}"/>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr t-if="global_discount">
+                        <td style="font-weight:700;text-align:left">Global Discount (including tax)</td>
+                        <td/>
+                        <td style="text-align:center">
+                            <span t-out="-global_discount"
+                                  t-options="{'widget':'monetary','display_currency':doc.currency_id}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;width:65.67%;text-align:left">
+                            <p style="">Total</p>
+                        </td>
+                        <td style="width:12.31%;text-align:left"/>
+                        <td style="width:22.02%;text-align:left">
+                            <p style="text-align:center">
+                                <span t-field="doc.amount_total"
+                                      t-options="{'widget':'monetary','display_currency':doc.currency_id}"/>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <h3 style="" class="qz-heading qz-heading-level-2">
+                    <span class="qz-heading-number">7.2</span>Payment Terms
+                </h3>
+                <ul class="qz-bullets">
+                    <li>Odoo Implementation Services:
+                        <ul style="list-style-type:circle;margin-bottom:6pt">
+                            <li>30% Advance upon contract signing</li>
+                            <li>15% Upon FRD Signoff</li>
+                            <li>15% at the start of UAT</li>
+                            <li>30% Upon UAT Sign Off</li>
+                            <li>10% Upon Project Handover</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>ODOO License Fee paid directly to Odoo</strong>
+                        in Advance upon confirmation with Odoo ME.
+                    </li>
+                    <li>
+                        <strong>Yearly Maintenance and Support: (20%</strong>
+                        of the Total Implementation Fee)
+                        <ul style="list-style-type:circle">
+                            <li>Year 1: 100% of the total maintenance price upon companionship period conclusion (1
+                                months after project closure).
+                            </li>
+                            <li>Year 2: 100% of the total maintenance price, 12 months after 1st invoice generation.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p style="">All invoices are to be paid within Seven (7) calendar days from invoice date.</p>
+                <h3 style="page-break-before:always" class="qz-heading qz-heading-level-2">
+                    <span class="qz-heading-number">7.3</span>Currency and Taxes:
+                </h3>
+                <ol class="qz-bullets" style="list-style-type:lower-alpha;">
+                    <li>Currency: All prices mentioned in this proposal are in AED</li>
+                    <li>VAT: The pricing mentioned herein is exclusive of VAT. Government mandated VAT will be
+                        applicable, subject to the law and regulations of the UAE.
+                    </li>
+                </ol>
+                <h3 style="" class="qz-heading qz-heading-level-2">
+                    <span class="qz-heading-number">7.4</span>General Terms and Conditions
+                </h3>
+                <ul class="qz-bullets">
+                    <li>Order Confirmation: This proposal will become binding on<span t-field="doc.company_id.name"/>,
+                        only upon
+                        <span t-field="doc.partner_id.name"/>
+                        issuance of the Letter of Acceptance/LPO and on realization of first invoice, whichever is
+                        later.
+                    </li>
+                    <li>All uses of the word "days" and "months" shall mean business days and months in the Gregorian
+                        calendar. Business days shall not include Saturday and Sunday, and the U.A.E. private sector
+                        national holidays.
+                    </li>
+                    <li>Validity: This proposal is valid till
+                        <span t-field="doc.qz_sales_validity" t-options="{'widget':'date','format':'dd MMM yyyy'}"/>
+                        .
+                    </li>
+                </ul>
+            </section>
+            <h2 style="page-break-before:always" class="qz-heading qz-heading-level-1">
+                <span class="qz-heading-number">8</span>Acceptance
+            </h2>
+            <p style="">As part of an agreement for the above engagement, kindly confirm the acceptance of the above
+                proposal by signing this document on behalf of
+                <span t-field="doc.partner_id.name"/>
+                Management.
+            </p>
+            <table class="qz-signatures table table-borderless">
+                <tr>
+                    <td>Signed for and on behalf of</td>
+                    <td>Signed for and on behalf of</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span t-field="doc.company_id.name"/>
+                    </td>
+                    <td>
+                        <span t-field="doc.partner_id.name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Authorized</td>
+                    <td>Authorized</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="qz-sign-line"/>Name
+                    </td>
+                    <td>
+                        <div class="qz-sign-line" style="position:relative;">
+                            <img t-if="doc.signature" t-att-src="image_data_uri(doc.signature)"
+                                 style="position:absolute;bottom:1mm;left:0;max-width:55mm;max-height:18mm;"/>
+                        </div>
+                        <span t-if="doc.signature" t-field="doc.signed_by"/>
+                        <t t-else="">Name</t>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="qz-sign-line"/>Title
+                    </td>
+                    <td>
+                        <div class="qz-sign-line"/>Title
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="qz-sign-line"/>Date
+                    </td>
+                    <td>
+                        <div class="qz-sign-line"/>
+                        <span t-if="doc.signature" t-field="doc.signed_on" t-options="{'widget': 'date'}"/>
+                        <t t-else="">Date</t>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </template>
+</odoo>

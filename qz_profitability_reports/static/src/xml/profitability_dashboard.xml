@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="qz_profitability.DashboardAction"
+       t-inherit="spreadsheet_dashboard.DashboardAction" t-inherit-mode="extension">
+        <xpath expr="//MobileFigureContainer/.." position="replace">
+            <t t-else="">
+                <QzCustomerDashboard
+                    t-if="dashboard.model.getters.getSheetIds().includes('customer_dashboard')"
+                    model="dashboard.model" t-key="dashboard.data.id"/>
+                <QzConsultantDashboard
+                    t-elif="dashboard.model.getters.getSheetIds().includes('consultant_dashboard')"
+                    model="dashboard.model" t-key="dashboard.data.id"/>
+                <t t-else="">
+                    <MobileFigureContainer t-if="env.isSmall" spreadsheetModel="dashboard.model" t-key="dashboard.data.id"/>
+                    <div t-else="" class="o_renderer" t-att-class="{'o-sample-dashboard': dashboard.isSample}">
+                        <SpreadsheetComponent model="dashboard.model" t-key="dashboard.data.id"/>
+                    </div>
+                </t>
+            </t>
+        </xpath>
+    </t>
+
+    <t t-name="qz_profitability.CustomerDashboard">
+        <div class="qz-customer-dashboard" t-att-aria-busy="state.loading">
+            <div class="qz-heading">
+                <div><span class="qz-eyebrow">HUMAN RESOURCES</span><h2>Customer Profitability</h2></div>
+                <button type="button" class="btn btn-sm btn-outline-secondary" t-on-click="() => this.load(true)" t-att-disabled="state.loading">Refresh</button>
+            </div>
+            <p t-if="state.loading" role="status">Loading customer profitability…</p>
+            <div t-elif="state.error" class="alert alert-danger" role="alert" t-esc="state.error"/>
+            <t t-elif="state.data">
+                <t t-set="totals" t-value="state.data.totals"/>
+                <div class="qz-kpis qz-kpis-hours">
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openRecords()"><span>Total Customers</span><strong t-esc="totals.customers"/></button>
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openProjects()"><span>Total Planned Hours</span><strong><t t-esc="number(totals.planned)"/> h</strong></button>
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openDetails()"><span>Total Spent Hours</span><strong><t t-esc="number(totals.hours)"/> h</strong></button>
+                </div>
+                <div class="qz-kpis qz-kpis-financial">
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openDetails()"><span>Revenue</span><strong t-esc="money(totals.revenue)"/></button>
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openDetails()"><span>Total Cost</span><strong t-esc="money(totals.cost)"/></button>
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openDetails()"><span>Total Profit</span><strong t-att-class="tone(totals.profit)" t-esc="money(totals.profit)"/></button>
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openDetails()"><span>Overall Margin</span><strong t-att-class="tone(totals.margin)"><t t-esc="number(totals.margin, 2)"/>%</strong></button>
+                </div>
+                <p class="qz-caption">Amounts in <t t-esc="state.data.currency.name"/> · Project revenue = allocated hours × project rate, counted once and distributed by logged hours. Cost = logged hours × employee cost. Period filters select revenue shares and costs; planned hours show full allocations for represented projects.</p>
+                <section>
+                    <h3>Customer profitability table</h3>
+                    <div class="qz-table-scroll"><table>
+                        <thead><tr><th>Customer</th><th>Revenue</th><th>Cost</th><th>Profit</th><th>Margin</th></tr></thead>
+                        <tbody><tr t-foreach="state.data.rows" t-as="row" t-key="row.id">
+                            <td><button type="button" class="qz-link" t-on-click="() => this.openRecord(row)" t-esc="row.name"/></td><td><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)" t-esc="money(row.revenue)"/></td><td><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)" t-esc="money(row.cost)"/></td>
+                            <td t-att-class="tone(row.profit)"><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)" t-esc="money(row.profit)"/></td>
+                            <td t-att-class="tone(row.margin)"><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)"><t t-esc="number(row.margin, 2)"/>%</button></td>
+                        </tr><tr t-if="!state.data.rows.length"><td colspan="5" class="qz-empty">No customer timesheets for the selected filters.</td></tr></tbody>
+                    </table></div>
+                </section>
+                <section>
+                    <h3>Top profitable customers</h3>
+                    <div class="qz-bars">
+                    <div t-foreach="topCustomers" t-as="row" t-key="row.id" class="qz-profit-bar">
+                        <button type="button" class="qz-link" t-on-click="() => this.openRecord(row)" t-esc="row.name"/><button type="button" class="qz-bar-track" t-att-title="row.name" t-att-aria-label="'Open profitability details: ' + row.name" t-on-click="() => this.openDetails(row)"><div class="qz-bar-fill" t-att-style="barWidth(row)"/></button>
+                        <button type="button" class="qz-link qz-positive" t-on-click="() => this.openDetails(row)" t-esc="money(row.profit)"/>
+                    </div><p t-if="!topCustomers.length" class="qz-empty">No profitable customers for these filters.</p>
+                    </div>
+                </section>
+                <section>
+                    <h3>Loss-making customers</h3>
+                    <div class="qz-table-scroll"><table>
+                        <thead><tr><th>Customer</th><th>Revenue</th><th>Cost</th><th>Loss</th></tr></thead>
+                        <tbody><tr t-foreach="lossCustomers" t-as="row" t-key="row.id">
+                            <td><button type="button" class="qz-link" t-on-click="() => this.openRecord(row)" t-esc="row.name"/></td><td><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)" t-esc="money(row.revenue)"/></td><td><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)" t-esc="money(row.cost)"/></td>
+                            <td class="qz-negative"><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)" t-esc="money(row.profit)"/></td>
+                        </tr><tr t-if="!lossCustomers.length"><td colspan="4" class="qz-empty">No loss-making customers for these filters.</td></tr></tbody>
+                    </table></div>
+                </section>
+                <section>
+                    <h3>Hours Analysis</h3>
+                    <div class="qz-table-scroll"><table>
+                        <thead><tr><th>Customer</th><th>Planned</th><th>Spent</th><th>Variance</th></tr></thead>
+                        <tbody><tr t-foreach="state.data.rows" t-as="row" t-key="row.id">
+                            <td><button type="button" class="qz-link" t-on-click="() => this.openRecord(row)" t-esc="row.name"/></td><td><button type="button" class="qz-link" t-on-click="() => this.openProjects(row)"><t t-esc="number(row.planned)"/> h</button></td><td><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)"><t t-esc="number(row.hours)"/> h</button></td>
+                            <td t-att-class="tone(row.variance)"><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)"><t t-if="row.variance > 0">+</t><t t-esc="number(row.variance)"/> h <span t-if="row.variance &lt; 0" title="Spent hours exceed allocated hours" aria-label="Over allocated hours">⚠</span></button></td>
+                        </tr><tr t-if="!state.data.rows.length"><td colspan="4" class="qz-empty">No hours to display.</td></tr></tbody>
+                    </table></div>
+                </section>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="qz_profitability.ConsultantDashboard">
+        <div class="qz-customer-dashboard qz-consultant-dashboard" t-att-aria-busy="state.loading">
+            <div class="qz-heading">
+                <div><span class="qz-eyebrow">HUMAN RESOURCES</span><h2>Consultant Profitability</h2></div>
+                <button type="button" class="btn btn-sm btn-outline-secondary" t-on-click="() => this.load(true)" t-att-disabled="state.loading">Refresh</button>
+            </div>
+            <p t-if="state.loading" role="status">Loading consultant profitability…</p>
+            <div t-elif="state.error" class="alert alert-danger" role="alert" t-esc="state.error"/>
+            <t t-elif="state.data">
+                <t t-set="totals" t-value="state.data.totals"/>
+                <div class="qz-kpis qz-kpis-hours">
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openRecords()"><span>Total Consultants</span><strong t-esc="totals.consultants"/></button>
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openDetails()"><span>Total Hours</span><strong><t t-esc="number(totals.hours)"/> h</strong></button>
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openDetails()"><span>Revenue</span><strong t-esc="money(totals.revenue)"/></button>
+                </div>
+                <div class="qz-kpis qz-kpis-hours qz-financial-consultant">
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openDetails()"><span>Total Cost</span><strong t-esc="money(totals.cost)"/></button>
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openDetails()"><span>Total Profit</span><strong t-att-class="tone(totals.profit)" t-esc="money(totals.profit)"/></button>
+                    <button type="button" class="qz-kpi" t-on-click="() => this.openDetails()"><span>Margin</span><strong t-att-class="tone(totals.margin)"><t t-esc="number(totals.margin, 2)"/>%</strong></button>
+                </div>
+                <p class="qz-caption">Amounts in <t t-esc="state.data.currency.name"/> · Project revenue = allocated hours × project rate, shared between consultants by logged hours. Cost = logged hours × employee cost. Period filters select the corresponding revenue shares and costs.</p>
+                <section>
+                    <h3>Most Profitable Consultants</h3>
+                    <div class="qz-bars">
+                        <div t-foreach="topCustomers" t-as="row" t-key="row.id" class="qz-profit-bar">
+                            <button type="button" class="qz-link" t-on-click="() => this.openRecord(row)" t-esc="row.name"/><button type="button" class="qz-bar-track" t-att-title="row.name" t-att-aria-label="'Open profitability details: ' + row.name" t-on-click="() => this.openDetails(row)"><div class="qz-bar-fill" t-att-style="barWidth(row)"/></button>
+                            <button type="button" class="qz-link qz-positive" t-on-click="() => this.openDetails(row)" t-esc="money(row.profit)"/>
+                        </div><p t-if="!topCustomers.length" class="qz-empty">No profitable consultants for these filters.</p>
+                    </div>
+                </section>
+                <section>
+                    <h3>Hours vs Revenue</h3>
+                    <div class="qz-table-scroll"><table>
+                        <thead><tr><th>Consultant</th><th>Hours</th><th>Revenue/hr</th><th>Cost/hr</th><th>Profit/hr</th></tr></thead>
+                        <tbody><tr t-foreach="state.data.rows" t-as="row" t-key="row.id">
+                            <td><button type="button" class="qz-link" t-on-click="() => this.openRecord(row)" t-esc="row.name"/></td><td><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)"><t t-esc="number(row.hours)"/> h</button></td>
+                            <td><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)" t-esc="money(row.revenue_per_hour)"/></td><td><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)" t-esc="money(row.cost_per_hour)"/></td>
+                            <td t-att-class="tone(row.profit_per_hour)"><button type="button" class="qz-link" t-on-click="() => this.openDetails(row)" t-esc="money(row.profit_per_hour)"/></td>
+                        </tr><tr t-if="!state.data.rows.length"><td colspan="5" class="qz-empty">No consultant timesheets for the selected filters.</td></tr></tbody>
+                    </table></div>
+                </section>
+            </t>
+        </div>
+    </t>
+</templates>
