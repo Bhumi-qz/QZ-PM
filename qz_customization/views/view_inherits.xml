@@ -1,0 +1,87 @@
+<odoo>
+
+    <!-- ================================================================
+         Project form view
+         ================================================================ -->
+    <record id="qz_customization_inherit_edit_project" model="ir.ui.view">
+        <field name="name">customization.inherit.edit.project</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="hourly_rate"/>
+                <field name="hourly_rate_text"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ================================================================
+         Project list view
+         ================================================================ -->
+    <record id="qz_customization_inherit_view_project" model="ir.ui.view">
+        <field name="name">customization.inherit.view.project</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="after">
+                <field name="hourly_rate_text"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ================================================================
+         Analytic Line search view ("Search Analytic Lines")
+         ================================================================ -->
+   <record id="qz_my_timesheet_search_hourly_rate" model="ir.ui.view">
+    <field name="name">qz.my.timesheet.search.hourly.rate</field>
+    <field name="model">account.analytic.line</field>
+
+    <field name="inherit_id"
+           ref="hr_timesheet.hr_timesheet_line_my_timesheet_search"/>
+
+    <field name="arch" type="xml">
+        <xpath expr="//filter[@name='groupby_project']" position="before">
+
+            <filter
+                string="Hourly Rate"
+                name="group_hourly_rate_text"
+                context="{'group_by': 'hourly_rate_text'}"
+            />
+
+        </xpath>
+    </field>
+</record>
+    <!-- ================================================================
+         Timesheet Activities list view (editable)
+         ================================================================ -->
+    <record id="qz_customization_inherit_hr_timesheet_line_tree" model="ir.ui.view">
+        <field name="name">customization.inherit.hr.timesheet.line.tree</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="customer_id"/>
+                <field name="revenue"/>
+                <field name="hourly_rate_text"/>
+                <field name="project_total_hours"/>
+                <field name="project_hourly_rate"/>
+                <field name="employee_cost"/>
+                <field name="cost"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ================================================================
+         Timesheet pivot view ("Timesheet")
+         ================================================================ -->
+    <record id="qz_customization_inherit_view_my_timesheet_line_pivot" model="ir.ui.view">
+        <field name="name">customization.inherit.hr.timesheet.line.pivot</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.view_my_timesheet_line_pivot"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount']" position="after">
+                <field name="hourly_rate_text"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

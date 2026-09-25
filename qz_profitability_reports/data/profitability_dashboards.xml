@@ -1,0 +1,25 @@
+<odoo>
+    <record id="spreadsheet_dashboard.spreadsheet_dashboard_group_hr" model="spreadsheet.dashboard.group">
+        <field name="sequence">550</field>
+    </record>
+
+    <record id="spreadsheet_dashboard_consultant_profitability" model="spreadsheet.dashboard">
+        <field name="name">Consultant-wise</field>
+        <field name="spreadsheet_binary_data" type="base64" file="qz_profitability_reports/data/files/consultant_profitability_dashboard.json"/>
+        <field name="main_data_model_ids" eval="[(4, ref('model_profitability_report'))]"/>
+        <field name="dashboard_group_id" ref="spreadsheet_dashboard.spreadsheet_dashboard_group_hr"/>
+        <field name="group_ids" eval="[Command.link(ref('base.group_user'))]"/>
+        <field name="sequence">100</field>
+        <field name="is_published">True</field>
+    </record>
+
+    <record id="spreadsheet_dashboard_customer_profitability" model="spreadsheet.dashboard">
+        <field name="name">Customer-wise</field>
+        <field name="spreadsheet_binary_data" type="base64" file="qz_profitability_reports/data/files/customer_profitability_dashboard.json"/>
+        <field name="main_data_model_ids" eval="[(4, ref('model_profitability_report'))]"/>
+        <field name="dashboard_group_id" ref="spreadsheet_dashboard.spreadsheet_dashboard_group_hr"/>
+        <field name="group_ids" eval="[Command.link(ref('base.group_user'))]"/>
+        <field name="sequence">200</field>
+        <field name="is_published">True</field>
+    </record>
+</odoo>

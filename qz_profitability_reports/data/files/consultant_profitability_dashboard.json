@@ -1,0 +1,770 @@
+{
+  "version": "18.5.10",
+  "sheets": [
+    {
+      "id": "consultant_dashboard",
+      "name": "Consultant Profitability",
+      "colNumber": 9,
+      "rowNumber": 70,
+      "rows": {
+        "0": {
+          "size": 48
+        },
+        "1": {
+          "size": 16
+        },
+        "2": {
+          "size": 28
+        },
+        "3": {
+          "size": 46
+        },
+        "5": {
+          "size": 28
+        },
+        "6": {
+          "size": 46
+        },
+        "10": {
+          "size": 38
+        },
+        "12": {
+          "size": 34
+        },
+        "28": {
+          "size": 38
+        },
+        "30": {
+          "size": 34
+        },
+        "13": {
+          "size": 30
+        },
+        "14": {
+          "size": 30
+        },
+        "15": {
+          "size": 30
+        },
+        "16": {
+          "size": 30
+        },
+        "17": {
+          "size": 30
+        },
+        "18": {
+          "size": 30
+        },
+        "19": {
+          "size": 30
+        },
+        "20": {
+          "size": 30
+        },
+        "21": {
+          "size": 30
+        },
+        "22": {
+          "size": 30
+        },
+        "31": {
+          "size": 30
+        },
+        "32": {
+          "size": 30
+        },
+        "33": {
+          "size": 30
+        },
+        "34": {
+          "size": 30
+        },
+        "35": {
+          "size": 30
+        },
+        "36": {
+          "size": 30
+        },
+        "37": {
+          "size": 30
+        },
+        "38": {
+          "size": 30
+        },
+        "39": {
+          "size": 30
+        },
+        "40": {
+          "size": 30
+        },
+        "41": {
+          "size": 30
+        },
+        "42": {
+          "size": 30
+        },
+        "43": {
+          "size": 30
+        },
+        "44": {
+          "size": 30
+        },
+        "45": {
+          "size": 30
+        },
+        "46": {
+          "size": 30
+        },
+        "47": {
+          "size": 30
+        },
+        "48": {
+          "size": 30
+        },
+        "49": {
+          "size": 30
+        },
+        "50": {
+          "size": 30
+        },
+        "51": {
+          "size": 30
+        },
+        "52": {
+          "size": 30
+        },
+        "53": {
+          "size": 30
+        },
+        "54": {
+          "size": 30
+        },
+        "55": {
+          "size": 30
+        },
+        "56": {
+          "size": 30
+        },
+        "57": {
+          "size": 30
+        },
+        "58": {
+          "size": 30
+        },
+        "59": {
+          "size": 30
+        },
+        "60": {
+          "size": 30
+        },
+        "4": {
+          "size": 14
+        },
+        "7": {
+          "size": 14
+        },
+        "8": {
+          "size": 12
+        },
+        "9": {
+          "size": 12
+        }
+      },
+      "cols": {
+        "0": {
+          "size": 190
+        },
+        "1": {
+          "size": 125
+        },
+        "2": {
+          "size": 125
+        },
+        "3": {
+          "size": 125
+        },
+        "4": {
+          "size": 125
+        },
+        "5": {
+          "size": 125
+        },
+        "6": {
+          "size": 125
+        },
+        "7": {
+          "size": 125
+        },
+        "8": {
+          "size": 125
+        }
+      },
+      "merges": [
+        "A1:I1",
+        "A3:C3",
+        "A4:C4",
+        "D3:F3",
+        "D4:F4",
+        "G3:I3",
+        "G4:I4",
+        "A6:C6",
+        "A7:C7",
+        "D6:F6",
+        "D7:F7",
+        "G6:I6",
+        "G7:I7",
+        "A11:I11",
+        "A29:I29"
+      ],
+      "cells": {
+        "A1": "CONSULTANT PROFITABILITY",
+        "A3": "Total Consultants",
+        "A4": "=COUNTA(A32:A61)",
+        "D3": "Total Hours",
+        "D4": "=PIVOT.VALUE(2,\"hours\")",
+        "G3": "Revenue",
+        "G4": "=PIVOT.VALUE(2,\"revenue\")",
+        "A6": "Total Cost",
+        "A7": "=PIVOT.VALUE(2,\"cost\")",
+        "D6": "Total Profit",
+        "D7": "=PIVOT.VALUE(2,\"profit\")",
+        "G6": "Margin",
+        "G7": "=IFERROR(PIVOT.VALUE(2,\"profit\")/PIVOT.VALUE(2,\"revenue\"))",
+        "A11": "Most Profitable Consultants",
+        "A13": "=PIVOT(1,10,FALSE,FALSE)",
+        "A29": "Hours vs Revenue",
+        "A31": "=PIVOT(2,30,FALSE,FALSE)"
+      },
+      "styles": {
+        "A1:I1": 1,
+        "A3:C3": 10,
+        "A4:C4": 11,
+        "D3:F3": 12,
+        "D4:F4": 13,
+        "G3:I3": 14,
+        "G4:I4": 15,
+        "A6:C6": 16,
+        "A7:C7": 17,
+        "D6:F6": 18,
+        "D7:F7": 19,
+        "G6:I6": 20,
+        "G7:I7": 21,
+        "A11:I11": 4,
+        "A29:I29": 4,
+        "A13:B13": 5,
+        "A14:B14": 6,
+        "A15:B15": 7,
+        "A16:B16": 6,
+        "A17:B17": 7,
+        "A18:B18": 6,
+        "A19:B19": 7,
+        "A20:B20": 6,
+        "A21:B21": 7,
+        "A22:B22": 6,
+        "A23:B23": 7,
+        "A13": 25,
+        "A14": 26,
+        "A15": 27,
+        "A16": 26,
+        "A17": 27,
+        "A18": 26,
+        "A19": 27,
+        "A20": 26,
+        "A21": 27,
+        "A22": 26,
+        "A23": 27,
+        "A31:H31": 5,
+        "A32:H32": 6,
+        "A33:H33": 7,
+        "A34:H34": 6,
+        "A35:H35": 7,
+        "A36:H36": 6,
+        "A37:H37": 7,
+        "A38:H38": 6,
+        "A39:H39": 7,
+        "A40:H40": 6,
+        "A41:H41": 7,
+        "A42:H42": 6,
+        "A43:H43": 7,
+        "A44:H44": 6,
+        "A45:H45": 7,
+        "A46:H46": 6,
+        "A47:H47": 7,
+        "A48:H48": 6,
+        "A49:H49": 7,
+        "A50:H50": 6,
+        "A51:H51": 7,
+        "A52:H52": 6,
+        "A53:H53": 7,
+        "A54:H54": 6,
+        "A55:H55": 7,
+        "A56:H56": 6,
+        "A57:H57": 7,
+        "A58:H58": 6,
+        "A59:H59": 7,
+        "A60:H60": 6,
+        "A61:H61": 7,
+        "A31": 25,
+        "A32": 26,
+        "A33": 27,
+        "A34": 26,
+        "A35": 27,
+        "A36": 26,
+        "A37": 27,
+        "A38": 26,
+        "A39": 27,
+        "A40": 26,
+        "A41": 27,
+        "A42": 26,
+        "A43": 27,
+        "A44": 26,
+        "A45": 27,
+        "A46": 26,
+        "A47": 27,
+        "A48": 26,
+        "A49": 27,
+        "A50": 26,
+        "A51": 27,
+        "A52": 26,
+        "A53": 27,
+        "A54": 26,
+        "A55": 27,
+        "A56": 26,
+        "A57": 27,
+        "A58": 26,
+        "A59": 27,
+        "A60": 26,
+        "A61": 27
+      },
+      "formats": {
+        "D4": 1,
+        "G4": 1,
+        "A7": 1,
+        "D7": 1,
+        "G7": 2,
+        "B14:B23": 1,
+        "B32:G61": 1
+      },
+      "borders": {
+        "A11:I11": 1,
+        "A29:I29": 1,
+        "A13:B13": 1,
+        "A31:G31": 1
+      },
+      "conditionalFormats": [
+        {
+          "rule": {
+            "type": "DataBarRule",
+            "color": 556940,
+            "rangeValues": "B14:B23"
+          },
+          "id": "consultant-profit-bars",
+          "ranges": [
+            "B14:B23"
+          ]
+        },
+        {
+          "id": "consultant-profit-negative",
+          "ranges": [
+            "D7",
+            "G7",
+            "B14:B23",
+            "E32:E61",
+            "H32:H61"
+          ],
+          "rule": {
+            "type": "CellIsRule",
+            "operator": "isLessThan",
+            "values": [
+              "0"
+            ],
+            "style": {
+              "textColor": "#bd3948",
+              "fillColor": "#fff0f2",
+              "bold": true
+            }
+          }
+        },
+        {
+          "id": "consultant-profit-positive",
+          "ranges": [
+            "D7",
+            "G7",
+            "B14:B23",
+            "E32:E61",
+            "H32:H61"
+          ],
+          "rule": {
+            "type": "CellIsRule",
+            "operator": "isGreaterThan",
+            "values": [
+              "0"
+            ],
+            "style": {
+              "textColor": "#137a5a",
+              "fillColor": "#eaf7f0",
+              "bold": true
+            }
+          }
+        },
+        {
+          "id": "consultant-profit-neutral",
+          "ranges": [
+            "D7",
+            "G7",
+            "B14:B23",
+            "E32:E61",
+            "H32:H61"
+          ],
+          "rule": {
+            "type": "CellIsRule",
+            "operator": "isEqual",
+            "values": [
+              "0"
+            ],
+            "style": {
+              "textColor": "#243247",
+              "fillColor": "#eef3f6",
+              "bold": true
+            }
+          }
+        }
+      ],
+      "dataValidationRules": [],
+      "figures": [],
+      "tables": [],
+      "areGridLinesVisible": false,
+      "isVisible": true,
+      "headerGroups": {},
+      "comments": {}
+    }
+  ],
+  "styles": {
+    "1": {
+      "textColor": "#ffffff",
+      "fillColor": "#087f8c",
+      "bold": true,
+      "fontSize": 20,
+      "verticalAlign": "middle"
+    },
+    "4": {
+      "textColor": "#087f8c",
+      "fillColor": "#e7f5f5",
+      "bold": true,
+      "fontSize": 14,
+      "verticalAlign": "middle"
+    },
+    "5": {
+      "textColor": "#32616a",
+      "fillColor": "#e7f5f5",
+      "bold": true,
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "right"
+    },
+    "6": {
+      "textColor": "#243247",
+      "fillColor": "#ffffff",
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "right"
+    },
+    "7": {
+      "textColor": "#243247",
+      "fillColor": "#f4f7fb",
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "right"
+    },
+    "8": {
+      "textColor": "#bd3948",
+      "fillColor": "#fff0f2",
+      "bold": true,
+      "fontSize": 14,
+      "verticalAlign": "middle"
+    },
+    "10": {
+      "textColor": "#735b9d",
+      "fillColor": "#f0ebf8",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "11": {
+      "textColor": "#243247",
+      "fillColor": "#f0ebf8",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "12": {
+      "textColor": "#3569ac",
+      "fillColor": "#eaf2fc",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "13": {
+      "textColor": "#243247",
+      "fillColor": "#eaf2fc",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "14": {
+      "textColor": "#087f8c",
+      "fillColor": "#e7f5f5",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "15": {
+      "textColor": "#243247",
+      "fillColor": "#e7f5f5",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "16": {
+      "textColor": "#95671f",
+      "fillColor": "#fff5e5",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "17": {
+      "textColor": "#243247",
+      "fillColor": "#fff5e5",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "18": {
+      "textColor": "#526477",
+      "fillColor": "#eef3f6",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "19": {
+      "textColor": "#243247",
+      "fillColor": "#eef3f6",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "20": {
+      "textColor": "#735b9d",
+      "fillColor": "#f0ebf8",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "21": {
+      "textColor": "#243247",
+      "fillColor": "#f0ebf8",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "25": {
+      "textColor": "#32616a",
+      "fillColor": "#e7f5f5",
+      "bold": true,
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "left"
+    },
+    "26": {
+      "textColor": "#243247",
+      "fillColor": "#ffffff",
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "left"
+    },
+    "27": {
+      "textColor": "#243247",
+      "fillColor": "#f4f7fb",
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "left"
+    }
+  },
+  "formats": {
+    "1": "#,##0.00",
+    "2": "0.0%"
+  },
+  "borders": {
+    "1": {
+      "bottom": {
+        "style": "thin",
+        "color": "#dbe5eb"
+      }
+    }
+  },
+  "revisionId": "START_REVISION",
+  "uniqueFigureIds": true,
+  "settings": {
+    "locale": {
+      "name": "English (US)",
+      "code": "en_US",
+      "thousandsSeparator": ",",
+      "decimalSeparator": ".",
+      "dateFormat": "mm/dd/yyyy",
+      "timeFormat": "hh:mm:ss",
+      "formulaArgSeparator": ",",
+      "weekStart": 7
+    }
+  },
+  "pivots": {
+    "1": {
+      "type": "ODOO",
+      "fieldMatching": {
+        "consultant_period": {
+          "chain": "date",
+          "type": "date",
+          "offset": 0
+        }
+      },
+      "context": {},
+      "domain": [
+        [
+          "employee_id",
+          "!=",
+          false
+        ]
+      ],
+      "id": "1",
+      "measures": [
+        {
+          "id": "profit",
+          "fieldName": "profit",
+          "userDefinedName": "Profit"
+        }
+      ],
+      "model": "profitability.report",
+      "name": "Top Consultants",
+      "sortedColumn": {
+        "measure": "profit",
+        "order": "desc",
+        "domain": []
+      },
+      "formulaId": "1",
+      "columns": [],
+      "rows": [
+        {
+          "fieldName": "employee_id"
+        }
+      ]
+    },
+    "2": {
+      "type": "ODOO",
+      "fieldMatching": {
+        "consultant_period": {
+          "chain": "date",
+          "type": "date",
+          "offset": 0
+        }
+      },
+      "context": {},
+      "domain": [
+        [
+          "employee_id",
+          "!=",
+          false
+        ]
+      ],
+      "id": "2",
+      "measures": [
+        {
+          "id": "hours",
+          "fieldName": "hours",
+          "userDefinedName": "Hours"
+        },
+        {
+          "id": "revenue",
+          "fieldName": "revenue",
+          "userDefinedName": "Revenue"
+        },
+        {
+          "id": "cost",
+          "fieldName": "cost",
+          "userDefinedName": "Cost"
+        },
+        {
+          "id": "profit",
+          "fieldName": "profit",
+          "userDefinedName": "Profit"
+        },
+        {
+          "id": "Revenue per Hour:sum",
+          "fieldName": "Revenue per Hour",
+          "aggregator": "sum",
+          "userDefinedName": "Revenue/hr",
+          "computedBy": {
+            "sheetId": "consultant_dashboard",
+            "formula": "=IFERROR(revenue/hours)"
+          }
+        },
+        {
+          "id": "Cost per Hour:sum",
+          "fieldName": "Cost per Hour",
+          "aggregator": "sum",
+          "userDefinedName": "Cost/hr",
+          "computedBy": {
+            "sheetId": "consultant_dashboard",
+            "formula": "=IFERROR(cost/hours)"
+          }
+        },
+        {
+          "id": "Profit per Hour:sum",
+          "fieldName": "Profit per Hour",
+          "aggregator": "sum",
+          "userDefinedName": "Profit/hr",
+          "computedBy": {
+            "sheetId": "consultant_dashboard",
+            "formula": "=IFERROR(profit/hours)"
+          }
+        }
+      ],
+      "model": "profitability.report",
+      "name": "Consultant Analysis",
+      "sortedColumn": {
+        "measure": "profit",
+        "order": "desc",
+        "domain": []
+      },
+      "formulaId": "2",
+      "columns": [],
+      "rows": [
+        {
+          "fieldName": "employee_id"
+        }
+      ]
+    }
+  },
+  "pivotNextId": 3,
+  "customTableStyles": {},
+  "globalFilters": [
+    {
+      "id": "consultant_period",
+      "type": "date",
+      "label": "Period"
+    }
+  ],
+  "lists": {},
+  "listNextId": 1,
+  "chartOdooMenusReferences": {}
+}

@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <template id="report_sale_proposal">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="qz_sale_reports.sales_reference_document" t-lang="'en_US'"/>
+            </t>
+        </t>
+    </template>
+    <template id="proposal_document">
+        <t t-set="doc" t-value="doc.with_context(lang='en_US')"/>
+        <div class="header" style="text-align:right;height:15mm;">
+            <img t-if="doc.company_id.logo" t-att-src="image_data_uri(doc.company_id.logo)" style="max-height:13mm;max-width:40mm;"/>
+            <script type="text/javascript">if (/[?&amp;]page=1(?:&amp;|$)/.test(window.location.search)) { var headers = document.getElementsByClassName('header'); for (var i=0; i &lt; headers.length; i++) { headers[i].style.visibility = 'hidden'; } }</script>
+        </div>
+        <div class="article qz-proposal" t-att-data-oe-model="doc._name" t-att-data-oe-id="doc.id" data-oe-lang="en_US">
+            <style>
+.qz-proposal {
+    font-family:Calibri,Arial,sans-serif;
+    font-size:11pt;
+    line-height:1.2;
+    color:#262626;
+}
+
+.qz-proposal p {
+    margin:0 0 6pt;
+    orphans:2;
+    widows:2;
+}
+
+.qz-proposal h2,.qz-proposal h3,.qz-proposal h4 {
+    color:#2f5496;
+    font-size:14pt;
+    font-weight:bold;
+    page-break-after:avoid;
+    margin:12pt 0 8pt;
+}
+
+.qz-proposal h3,.qz-proposal h4 {
+    font-size:12pt;
+}
+
+.qz-proposal .qz-space {
+    height:6pt;
+    margin:0;
+    font-size:6pt;
+}
+
+.qz-table {
+    border-collapse:collapse;
+    width:100%;
+    margin:8pt 0;
+    table-layout:fixed;
+}
+
+.qz-table td,.qz-table th {
+    border:1px solid #999;
+    padding:5pt 7pt;
+    vertical-align:top;
+    word-wrap:break-word;
+    text-align:left;
+}
+
+.qz-table th {
+    background:#e7e6e6;
+    font-weight:normal;
+}
+
+.qz-table tr {
+    page-break-inside:avoid;
+}
+
+.qz-table tr:first-child {
+    background:#e7e6e6;
+}
+
+.qz-editable img {
+    max-width:100%;
+    height:auto;
+}
+
+.qz-editable table {
+    max-width:100%;
+}
+
+.qz-keep {
+    page-break-inside:avoid;
+}
+
+.qz-control {
+    font-size:10pt;
+    line-height:1.2;
+}
+
+.qz-control h2,.qz-control h3 {
+    margin:8pt 0 5pt;
+}
+
+.qz-control .qz-table {
+    margin:5pt 0 9pt;
+}
+
+.qz-control .qz-table td,.qz-control .qz-table th {
+    padding:4pt 6pt;
+}
+
+.qz-proposal h2 + p,.qz-proposal h3 + p {
+    page-break-before:avoid;
+}
+
+.qz-signatures {
+    width:100%;
+    table-layout:fixed;
+    border-collapse:separate;
+    border-spacing:8mm 0;
+    page-break-inside:avoid;
+    margin-top:10mm;
+}
+
+.qz-signatures td {
+    width:50%;
+    vertical-align:top;
+    padding:3mm 0;
+    word-wrap:break-word;
+}
+
+.qz-sign-line {
+    height:13mm;
+    border-bottom:1px dotted #262626;
+    margin-bottom:3mm;
+}
+
+.qz-cover {
+    height:242mm;
+    position:relative;
+    overflow:hidden;
+    background:#009c99;
+    background:-webkit-linear-gradient(135deg,#008bb0,#00a66a);
+    background:linear-gradient(135deg,#008bb0,#00a66a);
+    page-break-after:always;
+    page-break-inside:avoid;
+    text-align:center;
+}
+
+.qz-oval {
+    position:absolute;
+    background:white;
+    top:-75mm;
+    left:-20%;
+    width:140%;
+    height:195mm;
+    border-radius:50%;
+}
+
+.qz-cover-art {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.qz-brand {
+    position:absolute;
+    top:15%;
+    left:30%;
+    width:40%;
+    height:22%;
+    background:white;
+    text-align:center;
+    padding-top:5mm;
+}
+
+.qz-brand img {
+    max-width:60mm;
+    max-height:44mm;
+}
+
+.qz-cover .qz-brand h2 {
+    color:#262626;
+}
+
+.qz-cover-title {
+    position:absolute;
+    top:51%;
+    left:8%;
+    width:84%;
+    color:#262626;
+    font-family:'Poppins Medium',Calibri,Arial,sans-serif;
+}
+
+.qz-cover-title h1 {
+    font-size:24pt;
+    font-weight:normal;
+    line-height:1.25;
+    margin:5mm 0;
+}
+
+.qz-cover-title h2 {
+    color:#262626;
+    font-size:22pt;
+    font-weight:normal;
+    line-height:1.2;
+    margin:3mm 0;
+}
+
+.qz-cover-title img {
+    max-width:40mm;
+    max-height:25mm;
+}
+
+.qz-cover-title p {
+    font-size:10pt;
+    margin-top:5mm;
+}
+
+.qz-cover-contacts {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:20mm;
+    background:#009f78;
+    color:white;
+    font-size:8pt;
+    line-height:1.2;
+    padding:3mm 5mm;
+    box-sizing:border-box;
+}
+
+.qz-proposal .qz-heading {
+    position:relative;
+    text-align:left;
+    padding-left:16mm;
+    margin-left:0;
+    margin-bottom:8pt;
+}
+
+.qz-proposal .qz-heading-number {
+    position:absolute;
+    left:0;
+    top:0;
+    width:15mm;
+    font-weight:normal;
+}
+
+.qz-proposal .qz-heading-level-1 {
+    font-size:16pt;
+}
+
+.qz-proposal .qz-heading-level-1 .qz-heading-number {
+    font-weight:bold;
+}
+
+.qz-proposal .qz-heading-level-2 {
+    font-size:12pt;
+}
+
+.qz-proposal .qz-heading-level-3 {
+    font-size:11pt;
+}
+
+.qz-proposal .qz-body &gt; p {
+    margin-left:0 !important;
+    text-align:justify;
+}
+
+.qz-proposal .qz-body &gt; ul {
+    padding-left:8mm;
+}
+
+.qz-brand img {
+    width:60mm;
+    height:60mm;
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+}
+
+.qz-proposal .qz-body p,
+.qz-proposal .qz-editable p {
+    margin-top: 0;
+    margin-bottom: 9pt !important;
+    line-height: 1.4;
+}
+.qz-proposal .qz-bullets {
+    margin: 3pt 0 10pt;
+    padding-left: 7mm;
+    list-style-type: disc;
+}
+.qz-proposal .qz-bullets li {
+    padding-left: 1mm;
+    margin-bottom: 5pt;
+    line-height: 1.4;
+    text-align: left;
+}
+.qz-proposal .qz-table p {
+    margin-bottom: 3pt !important;
+}
+</style>
+            <t t-call="qz_sale_reports.proposal_content"/>
+        </div>
+        <div class="footer" style="font-family:Calibri,Arial,sans-serif;font-size:10pt;line-height:1.3;color:#8da8c8;border-top:1.5px solid #808080;padding-top:3px;text-align:center;">
+            <div>
+                <span t-field="doc.company_id.name"/>
+            </div>
+            <div>
+                <span t-field="doc.company_id.email"/> | <span t-field="doc.company_id.website"/>
+            </div>
+            <div>
+                <span t-out="', '.join(filter(None, [doc.company_id.street, doc.company_id.street2, doc.company_id.city, doc.company_id.state_id.name, doc.company_id.country_id.name]))"/>
+            </div>
+            <div t-if="report_type == 'pdf'" style="text-align:right;font-weight:bold;padding-top:2px;">Page <span class="page"/> of <span class="topage"/>
+            </div>
+        </div>
+    </template>
+    <template id="sales_reference_document" inherit_id="qz_sale_reports.proposal_document" primary="True">
+        <xpath expr="//div[hasclass('header')]" position="replace">
+            <div class="header"/>
+        </xpath>
+        <xpath expr="//div[hasclass('article')]/style" position="replace">
+            <style type="text/css">
+@font-face {font-family:QZPoppins;src:url('<t t-out="doc._qz_reference_asset('fonts/Poppins-Light.ttf')"/>') format('truetype');font-weight:300;font-style:normal;}
+@font-face {font-family:QZPoppins;src:url('<t t-out="doc._qz_reference_asset('fonts/Poppins-Medium.ttf')"/>') format('truetype');font-weight:500;font-style:normal;}
+@font-face {font-family:QZPoppins;src:url('<t t-out="doc._qz_reference_asset('fonts/Poppins-Bold.ttf')"/>') format('truetype');font-weight:700;font-style:normal;}
+.qz-proposal {font-family:QZPoppins,sans-serif;font-weight:300;font-size:10pt;line-height:1.35;color:#000;}
+.qz-proposal p {margin:0 0 12pt;orphans:2;widows:2;text-align:justify;}
+.qz-proposal h2,.qz-proposal h3,.qz-proposal h4 {color:#2f5496;font-weight:700;page-break-after:avoid;line-height:1.35;margin:12pt 0;}
+.qz-proposal .qz-heading {position:relative;padding-left:10mm;}
+.qz-proposal .qz-heading-number {position:absolute;left:0;top:0;width:10mm;font-weight:300;}
+.qz-proposal .qz-heading-level-1 {font-size:14pt;margin-top:0;margin-bottom:18pt;}
+.qz-proposal .qz-heading-level-1 .qz-heading-number {font-weight:700;}
+.qz-proposal .qz-heading-level-2 {font-size:12pt;}
+.qz-proposal .qz-heading-level-3 {font-size:11pt;padding-left:15mm;}
+.qz-proposal .qz-heading-level-3 .qz-heading-number {width:15mm;}
+.qz-proposal ul,.qz-proposal ol {margin:0 0 12pt;padding-left:12.7mm;}
+.qz-proposal li {margin:0;line-height:1.35;text-align:justify;}
+.qz-proposal li p {margin:0;}
+.qz-proposal strong,.qz-proposal b {font-weight:700;}
+.qz-proposal .qz-editable img {max-width:100%;height:auto;}
+.qz-proposal .qz-editable table {max-width:100%;}
+.qz-proposal .qz-table {border-collapse:collapse;width:100%;table-layout:fixed;margin:12pt 0;}
+.qz-proposal .qz-table td,.qz-proposal .qz-table th {font-weight:300;text-align:left;border:1px solid black;padding:3pt 6pt;vertical-align:top;word-wrap:break-word;}
+.qz-proposal .qz-table tr {page-break-inside:avoid;}
+.qz-proposal .qz-table p,.qz-proposal .qz-table ul {margin:0;}
+.qz-proposal .qz-table tr:first-child {background:#f2f2f2;font-weight:700;}
+.qz-proposal .qz-table tr:first-child td,.qz-proposal .qz-table th {font-weight:700;background:#f2f2f2;}
+.qz-proposal .qz-control {font-size:11pt;}
+.qz-proposal .qz-control h2,.qz-proposal .qz-control h3 {color:black;text-align:center;background:#f2f2f2;border:1px solid black;padding:1pt 0;font-size:12pt;margin:8pt 0;}
+.qz-proposal .qz-control &gt; h2 {margin-top:30pt;}
+.qz-proposal .qz-control &gt; .qz-table:first-of-type td:first-child {width:32%;font-weight:700;}
+.qz-proposal .qz-control &gt; .qz-table:first-of-type tr {background:white;font-weight:300;}
+.qz-proposal .qz-control .qz-table td {padding:1pt 6pt;}
+.qz-proposal .qz-control > .qz-table:first-of-type td:nth-child(2) {font-weight:300;background:white;}
+.qz-proposal .qz-control &gt; .qz-table:nth-of-type(2) th:nth-child(1) {width:21.08%;}
+.qz-proposal .qz-control &gt; .qz-table:nth-of-type(2) th:nth-child(2) {width:46.74%;}
+.qz-proposal .qz-commercials .qz-table td {padding:3pt 2pt;text-align:left;}
+.qz-proposal .qz-commercials p,.qz-proposal .qz-commercials ul {margin-bottom:6pt;}
+.qz-proposal .qz-commercials .qz-heading {margin-top:8pt;margin-bottom:8pt;}
+.qz-proposal .qz-control p {font-size:11pt;margin:0 0 12pt;}
+.qz-proposal .qz-keep {page-break-inside:avoid;}
+.qz-proposal .qz-contact th {background:white;}
+.qz-proposal address {font-style:normal;margin:0;}
+.qz-proposal .qz-signatures td {font-weight:300;}
+.qz-proposal .qz-cover {height:230mm;page-break-after:always;position:relative;overflow:hidden;text-align:center;}
+.qz-proposal .qz-cover-art {width:100%;height:100%;}
+.qz-proposal .qz-brand,.qz-proposal .qz-cover-contacts {display:none;}
+.qz-proposal .qz-cover-title {position:absolute;top:50%;width:100%;}
+.qz-proposal .qz-cover-title img {max-height:24mm;max-width:40mm;}
+.qz-proposal .qz-signatures {width:100%;table-layout:fixed;border-collapse:collapse;margin-top:10mm;page-break-inside:avoid;}
+.qz-proposal .qz-signatures td {width:50%;padding:3mm 5mm 3mm 0;vertical-align:top;word-wrap:break-word;}
+.qz-proposal .qz-sign-line {height:13mm;border-bottom:1px dotted black;margin-bottom:3mm;}
+</style>
+        </xpath>
+        <xpath expr="//div[hasclass('footer')]" position="attributes">
+            <attribute name="style">font-family:QZPoppins,sans-serif;font-weight:300;font-size:10pt;line-height:1.3;color:#8da8c8;border-top:1.5px solid #808080;padding-top:3px;text-align:center;</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('footer')]" position="inside">
+            <style type="text/css">@font-face {font-family:QZPoppins;src:url('<t t-out="doc._qz_reference_asset('fonts/Poppins-Light.ttf')"/>') format('truetype');font-weight:300;}
+@font-face {font-family:QZPoppins;src:url('<t t-out="doc._qz_reference_asset('fonts/Poppins-Bold.ttf')"/>') format('truetype');font-weight:700;}</style>
+        </xpath>
+    </template>
+</odoo>

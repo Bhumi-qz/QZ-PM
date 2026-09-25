@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="qz_sale_reports_inherit_sale_order_form_quote" model="ir.ui.view">
+        <field name="name">sale.reports.inherit.sale.order.form.quote</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_management.sale_order_form_quote"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sale_order_template_id']" position="after">
+                <field name="qz_attach_amc"/>
+                <field name="qz_add_amc"/>
+                <field name="qz_reviewed_by_id"/>
+                <field name="qz_authorized_by_id"/>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_qz_review" type="object" string="Review Proposal"
+                        groups="sales_team.group_sale_salesman" invisible="qz_reviewed_by_id"/>
+                <button name="action_qz_authorize" type="object" string="Authorize Proposal"
+                        groups="sales_team.group_sale_salesman" invisible="qz_authorized_by_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="qz_sale_reports_inherit_view_order_form" model="ir.ui.view">
+        <field name="name">sale.reports.inherit.view.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="propsed_solution_details" string="Proposed Solution Details and Scope">
+                    <field name="qz_propsed_solution_details" required="True"/>
+                </page>
+                <page name="scope_html" string="Implementation Scope">
+                    <field name="qz_scope_html" required="True"/>
+                </page>
+                <page name="implementation_overview" string="Project Implementation Overview">
+                    <field name="qz_implementation_overview" required="True"/>
+                </page>
+                <page name="out_of_scope_html" string="Out of Scope Tasks">
+                    <field name="qz_out_of_scope_html" required="True"/>
+                </page>
+                <page name="assumptions_html" string="Project Assumptions">
+                    <field name="qz_assumptions_html" required="True"/>
+                </page>
+                <page name="qz_sales_proposal" string="Sales Proposal">
+                    <group>
+                        <group>
+                            <field name="qz_doc_version" required="True"/>
+                            <field name="qz_timeline" required="True"/>
+                            <separator string="Client References Image"/>
+                            <field name="qz_client_references_html" required="True"/>
+                        </group>
+                        <group>
+                            <field name="qz_sales_validity" required="True"/>
+                            <field name="qz_business_description" required="True"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/list/field[@name='price_unit']" position="after">
+                <field name="qz_amc_annual_hours" required="True"/>
+                <field name="qz_amc_annual_fee" required="True"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="after">
+                <field name="qz_amc_annual_hours" required="True"/>
+                <field name="qz_amc_annual_fee" required="True"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="qz_amc" string="AMC Agreement">
+                    <group>
+                        <group>
+                            <field name="qz_amc_annual_hours" required="True"/>
+                            <field name="qz_amc_annual_fee" required="True"/>
+                            <field name="qz_amc_validity" required="True"/>
+                        </group>
+                        <group>
+                            <field name="qz_amc_carry_forward_percent" required="True"/>
+                            <field name="qz_amc_extra_hour_rate" required="True"/>
+                        </group>
+                    </group>
+                    <p class="text-muted">
+                        Enter annual hours on each order line. Annual fees use the
+                        untaxed line subtotal after discounts. The agreement totals
+                        all normal order lines; sections and down payments are excluded.
+                        Products and Systems uses the quotation template name.
+                        AMC validity uses this quotation's expiration date.
+                    </p>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <template id="amc_document" inherit_id="qz_sale_reports.proposal_document" primary="True">
+        <xpath expr="//t[@t-call='qz_sale_reports.proposal_content']" position="replace">
+            <t t-call="qz_sale_reports.amc_content"/>
+        </xpath>
+        <xpath expr="//div[hasclass('header')]" position="replace">
+            <div class="header"/>
+        </xpath>
+        <xpath expr="//div[hasclass('article')]/style" position="replace">
+            <style>
+                .qz-proposal
+                {font-family:Calibri,Arial,sans-serif;font-size:12pt;font-weight:400;line-height:1.16;color:#000;}
+                .qz-proposal p {padding-right:2mm;margin:0 0 8pt;text-align:justify;orphans:2;widows:2;}
+                .qz-proposal h1 {font-size:14pt;line-height:1.2;font-weight:bold;text-align:center;margin:0 0 18pt;}
+                .qz-proposal h2,.qz-proposal h3
+                {color:black;font-size:12pt;font-weight:bold;line-height:1.16;margin:16pt 0 8pt;page-break-after:avoid;}
+                .qz-proposal .qz-heading {padding-left:0;}
+                .qz-proposal .qz-heading-number {position:static;display:inline-block;margin-right:3mm;}
+                .qz-proposal .qz-amc-clause-number {position:absolute;left:0;top:0;font-weight:400;white-space:nowrap;}
+                .qz-proposal .qz-amc-clause-title {page-break-after:avoid;margin-top:10pt;}
+                .qz-proposal .qz-amc-heading-group {page-break-inside:avoid;}
+                .qz-proposal .qz-amc-title {text-align:center;margin:0 0 14pt;}
+                .qz-proposal .qz-amc-title img {max-height:12mm;max-width:30mm;margin-bottom:3mm;}
+                .qz-proposal .qz-amc-introduction {margin-bottom:14pt;}
+                .qz-proposal .qz-amc-execution
+                {page-break-before:always;page-break-inside:avoid;margin-top:0;padding-top:16mm;}
+                .qz-proposal .qz-amc-page-start {page-break-before:always;}
+                .qz-proposal .qz-amc-signatures
+                {border-collapse:collapse;width:135.77mm;table-layout:fixed;margin:32.5mm 0 0
+                1.6mm;page-break-inside:avoid;}
+                .qz-proposal .qz-amc-signatures td {width:50%;padding:0 5mm 0 2mm;vertical-align:top;line-height:1.3;}
+                .qz-proposal .qz-amc-signatures td:first-child {width:91.55mm;}
+                .qz-proposal .qz-amc-signatures td + td {width:44.22mm;border-left:1px solid black;padding-right:0;}
+                .qz-proposal .qz-amc-signatures .qz-amc-signing-space {padding-top:39mm;}
+                .qz-proposal .qz-amc-signature-rule {width:20mm;height:1px;border-bottom:1px solid
+                black;margin-bottom:1mm;}
+                .qz-proposal .qz-amc-signatures .qz-amc-sign-date {padding-top:6mm;}
+                .qz-proposal .qz-amc-annexure {page-break-before:always;font-size:10pt;line-height:1.16;}
+                .qz-proposal .qz-amc-annexure h2 {text-align:center;font-size:14pt;}
+                .qz-proposal .qz-amc-annexure h3 {font-size:11pt;margin-top:14pt;}
+                .qz-proposal .qz-amc-annexure p {margin-left:12.7mm;}
+                .qz-proposal .qz-amc-annexure ol {padding-left:6.35mm;margin:0;}
+                .qz-proposal .qz-amc-annexure li {margin:0 0 3pt;text-align:justify;}
+
+                .qz-proposal .qz-amc-execution &gt; p {text-align:left;}
+            </style>
+        </xpath>
+        <xpath expr="//div[hasclass('footer')]" position="replace">
+            <div class="footer"
+                 style="font-family:Calibri,Arial,sans-serif;font-size:10pt;line-height:1.2;color:black;">
+                <div style="width:12mm;border-top:1px solid black;margin-bottom:5mm;"/>
+                <div style="text-align:center;">
+                    <span t-field="doc.company_id.email"/>
+                    ||
+                    <span style="color:#0000ff;text-decoration:underline;"
+                          t-out="(doc.company_id.website or '').removeprefix('https://').removeprefix('http://').rstrip('/')"/>
+                    ||
+                    <span t-out="', '.join(filter(None, [doc.company_id.street, doc.company_id.street2, doc.company_id.city, doc.company_id.country_id.name]))"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <template id="report_amc">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="qz_sale_reports.amc_document" t-lang="'en_US'"/>
+            </t>
+        </t>
+    </template>
+</odoo>

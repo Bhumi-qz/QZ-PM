@@ -1,0 +1,1290 @@
+{
+  "version": "18.5.10",
+  "sheets": [
+    {
+      "id": "customer_dashboard",
+      "name": "Customer Profitability",
+      "colNumber": 9,
+      "rowNumber": 150,
+      "rows": {
+        "0": {
+          "size": 48
+        },
+        "2": {
+          "size": 28
+        },
+        "3": {
+          "size": 46
+        },
+        "5": {
+          "size": 28
+        },
+        "6": {
+          "size": 46
+        },
+        "10": {
+          "size": 38
+        },
+        "12": {
+          "size": 34
+        },
+        "68": {
+          "size": 38
+        },
+        "70": {
+          "size": 34
+        },
+        "86": {
+          "size": 38
+        },
+        "88": {
+          "size": 34
+        },
+        "13": {
+          "size": 30
+        },
+        "14": {
+          "size": 30
+        },
+        "15": {
+          "size": 30
+        },
+        "16": {
+          "size": 30
+        },
+        "17": {
+          "size": 30
+        },
+        "18": {
+          "size": 30
+        },
+        "19": {
+          "size": 30
+        },
+        "20": {
+          "size": 30
+        },
+        "21": {
+          "size": 30
+        },
+        "22": {
+          "size": 30
+        },
+        "23": {
+          "size": 30
+        },
+        "24": {
+          "size": 30
+        },
+        "25": {
+          "size": 30
+        },
+        "26": {
+          "size": 30
+        },
+        "27": {
+          "size": 30
+        },
+        "28": {
+          "size": 30
+        },
+        "29": {
+          "size": 30
+        },
+        "30": {
+          "size": 30
+        },
+        "31": {
+          "size": 30
+        },
+        "32": {
+          "size": 30
+        },
+        "33": {
+          "size": 30
+        },
+        "34": {
+          "size": 30
+        },
+        "35": {
+          "size": 30
+        },
+        "36": {
+          "size": 30
+        },
+        "37": {
+          "size": 30
+        },
+        "38": {
+          "size": 30
+        },
+        "39": {
+          "size": 30
+        },
+        "40": {
+          "size": 30
+        },
+        "41": {
+          "size": 30
+        },
+        "42": {
+          "size": 30
+        },
+        "43": {
+          "size": 30
+        },
+        "44": {
+          "size": 30
+        },
+        "45": {
+          "size": 30
+        },
+        "46": {
+          "size": 30
+        },
+        "47": {
+          "size": 30
+        },
+        "48": {
+          "size": 30
+        },
+        "49": {
+          "size": 30
+        },
+        "50": {
+          "size": 30
+        },
+        "51": {
+          "size": 30
+        },
+        "52": {
+          "size": 30
+        },
+        "53": {
+          "size": 30
+        },
+        "54": {
+          "size": 30
+        },
+        "55": {
+          "size": 30
+        },
+        "56": {
+          "size": 30
+        },
+        "57": {
+          "size": 30
+        },
+        "58": {
+          "size": 30
+        },
+        "59": {
+          "size": 30
+        },
+        "60": {
+          "size": 30
+        },
+        "61": {
+          "size": 30
+        },
+        "62": {
+          "size": 30
+        },
+        "71": {
+          "size": 30
+        },
+        "72": {
+          "size": 30
+        },
+        "73": {
+          "size": 30
+        },
+        "74": {
+          "size": 30
+        },
+        "75": {
+          "size": 30
+        },
+        "76": {
+          "size": 30
+        },
+        "77": {
+          "size": 30
+        },
+        "78": {
+          "size": 30
+        },
+        "79": {
+          "size": 30
+        },
+        "80": {
+          "size": 30
+        },
+        "89": {
+          "size": 30
+        },
+        "90": {
+          "size": 30
+        },
+        "91": {
+          "size": 30
+        },
+        "92": {
+          "size": 30
+        },
+        "93": {
+          "size": 30
+        },
+        "94": {
+          "size": 30
+        },
+        "95": {
+          "size": 30
+        },
+        "96": {
+          "size": 30
+        },
+        "97": {
+          "size": 30
+        },
+        "98": {
+          "size": 30
+        },
+        "99": {
+          "size": 30
+        },
+        "100": {
+          "size": 30
+        },
+        "101": {
+          "size": 30
+        },
+        "102": {
+          "size": 30
+        },
+        "103": {
+          "size": 30
+        },
+        "104": {
+          "size": 30
+        },
+        "105": {
+          "size": 30
+        },
+        "106": {
+          "size": 30
+        },
+        "107": {
+          "size": 30
+        },
+        "108": {
+          "size": 30
+        },
+        "109": {
+          "size": 30
+        },
+        "110": {
+          "size": 30
+        },
+        "111": {
+          "size": 30
+        },
+        "112": {
+          "size": 30
+        },
+        "113": {
+          "size": 30
+        },
+        "114": {
+          "size": 30
+        },
+        "115": {
+          "size": 30
+        },
+        "116": {
+          "size": 30
+        },
+        "117": {
+          "size": 30
+        },
+        "118": {
+          "size": 30
+        },
+        "119": {
+          "size": 30
+        },
+        "120": {
+          "size": 30
+        },
+        "121": {
+          "size": 30
+        },
+        "122": {
+          "size": 30
+        },
+        "123": {
+          "size": 30
+        },
+        "124": {
+          "size": 30
+        },
+        "125": {
+          "size": 30
+        },
+        "126": {
+          "size": 30
+        },
+        "127": {
+          "size": 30
+        },
+        "128": {
+          "size": 30
+        },
+        "129": {
+          "size": 30
+        },
+        "130": {
+          "size": 30
+        },
+        "131": {
+          "size": 30
+        },
+        "132": {
+          "size": 30
+        },
+        "133": {
+          "size": 30
+        },
+        "134": {
+          "size": 30
+        },
+        "135": {
+          "size": 30
+        },
+        "136": {
+          "size": 30
+        },
+        "137": {
+          "size": 30
+        },
+        "138": {
+          "size": 30
+        },
+        "1": {
+          "size": 16
+        },
+        "4": {
+          "size": 14
+        },
+        "7": {
+          "size": 14
+        },
+        "8": {
+          "size": 12
+        },
+        "9": {
+          "size": 12
+        }
+      },
+      "cols": {
+        "0": {
+          "size": 190
+        },
+        "1": {
+          "size": 125
+        },
+        "2": {
+          "size": 125
+        },
+        "3": {
+          "size": 125
+        },
+        "4": {
+          "size": 125
+        },
+        "5": {
+          "size": 125
+        },
+        "6": {
+          "size": 125
+        },
+        "7": {
+          "size": 125
+        },
+        "8": {
+          "size": 125
+        }
+      },
+      "merges": [
+        "A1:I1",
+        "A3:C3",
+        "A4:C4",
+        "D3:F3",
+        "D4:F4",
+        "G3:I3",
+        "G4:I4",
+        "A6:C6",
+        "A7:C7",
+        "D6:F6",
+        "D7:F7",
+        "G6:I6",
+        "G7:I7",
+        "A11:I11",
+        "A69:D69",
+        "E69:I69",
+        "A87:I87"
+      ],
+      "cells": {
+        "A1": "CUSTOMER PROFITABILITY",
+        "A3": "Total Customers",
+        "A4": "=COUNTA(A14:A63)",
+        "D3": "Total Timesheet Hours",
+        "D4": "=PIVOT.VALUE(1,\"hours\")",
+        "G3": "Revenue",
+        "G4": "=PIVOT.VALUE(1,\"revenue\")",
+        "A6": "Total Cost",
+        "A7": "=PIVOT.VALUE(1,\"cost\")",
+        "D6": "Total Profit",
+        "D7": "=PIVOT.VALUE(1,\"profit\")",
+        "G6": "Average Margin",
+        "G7": "=IFERROR(PIVOT.VALUE(1,\"profit\")/PIVOT.VALUE(1,\"revenue\"))",
+        "A11": "Customer Profitability",
+        "A13": "=PIVOT(1,50,FALSE,FALSE)",
+        "A69": "Top Profitable Customers",
+        "A71": "=PIVOT(2,10,FALSE,FALSE)",
+        "E69": "Loss-Making Customers",
+        "E71": "=PIVOT(3,10,FALSE,FALSE)",
+        "A87": "Customer Hours Analysis",
+        "A89": "=CHOOSECOLS(PIVOT(4,50,FALSE,FALSE),1,2,6,7,8)"
+      },
+      "styles": {
+        "A1:I1": 1,
+        "A3:C3": 10,
+        "A4:C4": 11,
+        "D3:F3": 12,
+        "D4:F4": 13,
+        "G3:I3": 14,
+        "G4:I4": 15,
+        "A6:C6": 16,
+        "A7:C7": 17,
+        "D6:F6": 18,
+        "D7:F7": 19,
+        "G6:I6": 20,
+        "G7:I7": 21,
+        "A11:I11": 4,
+        "A69:D69": 4,
+        "E69:I69": 8,
+        "A87:I87": 4,
+        "A13:F13": 5,
+        "A14:F14": 6,
+        "A15:F15": 7,
+        "A16:F16": 6,
+        "A17:F17": 7,
+        "A18:F18": 6,
+        "A19:F19": 7,
+        "A20:F20": 6,
+        "A21:F21": 7,
+        "A22:F22": 6,
+        "A23:F23": 7,
+        "A24:F24": 6,
+        "A25:F25": 7,
+        "A26:F26": 6,
+        "A27:F27": 7,
+        "A28:F28": 6,
+        "A29:F29": 7,
+        "A30:F30": 6,
+        "A31:F31": 7,
+        "A32:F32": 6,
+        "A33:F33": 7,
+        "A34:F34": 6,
+        "A35:F35": 7,
+        "A36:F36": 6,
+        "A37:F37": 7,
+        "A38:F38": 6,
+        "A39:F39": 7,
+        "A40:F40": 6,
+        "A41:F41": 7,
+        "A42:F42": 6,
+        "A43:F43": 7,
+        "A44:F44": 6,
+        "A45:F45": 7,
+        "A46:F46": 6,
+        "A47:F47": 7,
+        "A48:F48": 6,
+        "A49:F49": 7,
+        "A50:F50": 6,
+        "A51:F51": 7,
+        "A52:F52": 6,
+        "A53:F53": 7,
+        "A54:F54": 6,
+        "A55:F55": 7,
+        "A56:F56": 6,
+        "A57:F57": 7,
+        "A58:F58": 6,
+        "A59:F59": 7,
+        "A60:F60": 6,
+        "A61:F61": 7,
+        "A62:F62": 6,
+        "A63:F63": 7,
+        "A13": 25,
+        "A14": 26,
+        "A15": 27,
+        "A16": 26,
+        "A17": 27,
+        "A18": 26,
+        "A19": 27,
+        "A20": 26,
+        "A21": 27,
+        "A22": 26,
+        "A23": 27,
+        "A24": 26,
+        "A25": 27,
+        "A26": 26,
+        "A27": 27,
+        "A28": 26,
+        "A29": 27,
+        "A30": 26,
+        "A31": 27,
+        "A32": 26,
+        "A33": 27,
+        "A34": 26,
+        "A35": 27,
+        "A36": 26,
+        "A37": 27,
+        "A38": 26,
+        "A39": 27,
+        "A40": 26,
+        "A41": 27,
+        "A42": 26,
+        "A43": 27,
+        "A44": 26,
+        "A45": 27,
+        "A46": 26,
+        "A47": 27,
+        "A48": 26,
+        "A49": 27,
+        "A50": 26,
+        "A51": 27,
+        "A52": 26,
+        "A53": 27,
+        "A54": 26,
+        "A55": 27,
+        "A56": 26,
+        "A57": 27,
+        "A58": 26,
+        "A59": 27,
+        "A60": 26,
+        "A61": 27,
+        "A62": 26,
+        "A63": 27,
+        "A71:B71": 5,
+        "A72:B72": 6,
+        "A73:B73": 7,
+        "A74:B74": 6,
+        "A75:B75": 7,
+        "A76:B76": 6,
+        "A77:B77": 7,
+        "A78:B78": 6,
+        "A79:B79": 7,
+        "A80:B80": 6,
+        "A81:B81": 7,
+        "A71": 25,
+        "A72": 26,
+        "A73": 27,
+        "A74": 26,
+        "A75": 27,
+        "A76": 26,
+        "A77": 27,
+        "A78": 26,
+        "A79": 27,
+        "A80": 26,
+        "A81": 27,
+        "E71:H71": 5,
+        "E72:H72": 6,
+        "E73:H73": 7,
+        "E74:H74": 6,
+        "E75:H75": 7,
+        "E76:H76": 6,
+        "E77:H77": 7,
+        "E78:H78": 6,
+        "E79:H79": 7,
+        "E80:H80": 6,
+        "E81:H81": 7,
+        "E71": 25,
+        "E72": 26,
+        "E73": 27,
+        "E74": 26,
+        "E75": 27,
+        "E76": 26,
+        "E77": 27,
+        "E78": 26,
+        "E79": 27,
+        "E80": 26,
+        "E81": 27,
+        "A89:E89": 5,
+        "A90:E90": 6,
+        "A91:E91": 7,
+        "A92:E92": 6,
+        "A93:E93": 7,
+        "A94:E94": 6,
+        "A95:E95": 7,
+        "A96:E96": 6,
+        "A97:E97": 7,
+        "A98:E98": 6,
+        "A99:E99": 7,
+        "A100:E100": 6,
+        "A101:E101": 7,
+        "A102:E102": 6,
+        "A103:E103": 7,
+        "A104:E104": 6,
+        "A105:E105": 7,
+        "A106:E106": 6,
+        "A107:E107": 7,
+        "A108:E108": 6,
+        "A109:E109": 7,
+        "A110:E110": 6,
+        "A111:E111": 7,
+        "A112:E112": 6,
+        "A113:E113": 7,
+        "A114:E114": 6,
+        "A115:E115": 7,
+        "A116:E116": 6,
+        "A117:E117": 7,
+        "A118:E118": 6,
+        "A119:E119": 7,
+        "A120:E120": 6,
+        "A121:E121": 7,
+        "A122:E122": 6,
+        "A123:E123": 7,
+        "A124:E124": 6,
+        "A125:E125": 7,
+        "A126:E126": 6,
+        "A127:E127": 7,
+        "A128:E128": 6,
+        "A129:E129": 7,
+        "A130:E130": 6,
+        "A131:E131": 7,
+        "A132:E132": 6,
+        "A133:E133": 7,
+        "A134:E134": 6,
+        "A135:E135": 7,
+        "A136:E136": 6,
+        "A137:E137": 7,
+        "A138:E138": 6,
+        "A139:E139": 7,
+        "A89": 25,
+        "A90": 26,
+        "A91": 27,
+        "A92": 26,
+        "A93": 27,
+        "A94": 26,
+        "A95": 27,
+        "A96": 26,
+        "A97": 27,
+        "A98": 26,
+        "A99": 27,
+        "A100": 26,
+        "A101": 27,
+        "A102": 26,
+        "A103": 27,
+        "A104": 26,
+        "A105": 27,
+        "A106": 26,
+        "A107": 27,
+        "A108": 26,
+        "A109": 27,
+        "A110": 26,
+        "A111": 27,
+        "A112": 26,
+        "A113": 27,
+        "A114": 26,
+        "A115": 27,
+        "A116": 26,
+        "A117": 27,
+        "A118": 26,
+        "A119": 27,
+        "A120": 26,
+        "A121": 27,
+        "A122": 26,
+        "A123": 27,
+        "A124": 26,
+        "A125": 27,
+        "A126": 26,
+        "A127": 27,
+        "A128": 26,
+        "A129": 27,
+        "A130": 26,
+        "A131": 27,
+        "A132": 26,
+        "A133": 27,
+        "A134": 26,
+        "A135": 27,
+        "A136": 26,
+        "A137": 27,
+        "A138": 26,
+        "A139": 27
+      },
+      "formats": {
+        "D4": 1,
+        "G4": 1,
+        "A7": 1,
+        "D7": 1,
+        "G7": 2,
+        "B14:E63": 1,
+        "F14:F63": 2,
+        "B72:B81": 1,
+        "F72:H81": 1,
+        "B90:E139": 1
+      },
+      "borders": {
+        "A11:I11": 1,
+        "A69:D69": 1,
+        "E69:I69": 1,
+        "A87:I87": 1,
+        "A13:F13": 1,
+        "A71:B71": 1,
+        "E71:H71": 1,
+        "A89:E89": 1
+      },
+      "conditionalFormats": [
+        {
+          "rule": {
+            "type": "DataBarRule",
+            "color": 556940,
+            "rangeValues": "B72:B81"
+          },
+          "id": "customer-profit-bars",
+          "ranges": [
+            "B72:B81"
+          ]
+        },
+        {
+          "id": "customer-profit-negative",
+          "ranges": [
+            "D7",
+            "G7",
+            "E14:F63",
+            "B72:B81",
+            "H72:H81",
+            "E90:E139"
+          ],
+          "rule": {
+            "type": "CellIsRule",
+            "operator": "isLessThan",
+            "values": [
+              "0"
+            ],
+            "style": {
+              "textColor": "#bd3948",
+              "fillColor": "#fff0f2",
+              "bold": true
+            }
+          }
+        },
+        {
+          "id": "customer-profit-positive",
+          "ranges": [
+            "D7",
+            "G7",
+            "E14:F63",
+            "B72:B81",
+            "H72:H81",
+            "E90:E139"
+          ],
+          "rule": {
+            "type": "CellIsRule",
+            "operator": "isGreaterThan",
+            "values": [
+              "0"
+            ],
+            "style": {
+              "textColor": "#137a5a",
+              "fillColor": "#eaf7f0",
+              "bold": true
+            }
+          }
+        },
+        {
+          "id": "customer-profit-neutral",
+          "ranges": [
+            "D7",
+            "G7",
+            "E14:F63",
+            "B72:B81",
+            "H72:H81",
+            "E90:E139"
+          ],
+          "rule": {
+            "type": "CellIsRule",
+            "operator": "isEqual",
+            "values": [
+              "0"
+            ],
+            "style": {
+              "textColor": "#243247",
+              "fillColor": "#eef3f6",
+              "bold": true
+            }
+          }
+        }
+      ],
+      "dataValidationRules": [],
+      "figures": [],
+      "tables": [],
+      "areGridLinesVisible": false,
+      "isVisible": true,
+      "headerGroups": {},
+      "comments": {}
+    }
+  ],
+  "styles": {
+    "1": {
+      "textColor": "#ffffff",
+      "fillColor": "#087f8c",
+      "bold": true,
+      "fontSize": 20,
+      "verticalAlign": "middle"
+    },
+    "4": {
+      "textColor": "#087f8c",
+      "fillColor": "#e7f5f5",
+      "bold": true,
+      "fontSize": 14,
+      "verticalAlign": "middle"
+    },
+    "5": {
+      "textColor": "#32616a",
+      "fillColor": "#e7f5f5",
+      "bold": true,
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "right"
+    },
+    "6": {
+      "textColor": "#243247",
+      "fillColor": "#ffffff",
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "right"
+    },
+    "7": {
+      "textColor": "#243247",
+      "fillColor": "#f4f7fb",
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "right"
+    },
+    "8": {
+      "textColor": "#bd3948",
+      "fillColor": "#fff0f2",
+      "bold": true,
+      "fontSize": 14,
+      "verticalAlign": "middle"
+    },
+    "10": {
+      "textColor": "#735b9d",
+      "fillColor": "#f0ebf8",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "11": {
+      "textColor": "#243247",
+      "fillColor": "#f0ebf8",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "12": {
+      "textColor": "#3569ac",
+      "fillColor": "#eaf2fc",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "13": {
+      "textColor": "#243247",
+      "fillColor": "#eaf2fc",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "14": {
+      "textColor": "#087f8c",
+      "fillColor": "#e7f5f5",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "15": {
+      "textColor": "#243247",
+      "fillColor": "#e7f5f5",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "16": {
+      "textColor": "#95671f",
+      "fillColor": "#fff5e5",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "17": {
+      "textColor": "#243247",
+      "fillColor": "#fff5e5",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "18": {
+      "textColor": "#526477",
+      "fillColor": "#eef3f6",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "19": {
+      "textColor": "#243247",
+      "fillColor": "#eef3f6",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "20": {
+      "textColor": "#735b9d",
+      "fillColor": "#f0ebf8",
+      "fontSize": 11,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "21": {
+      "textColor": "#243247",
+      "fillColor": "#f0ebf8",
+      "fontSize": 24,
+      "bold": true,
+      "align": "center",
+      "verticalAlign": "middle"
+    },
+    "25": {
+      "textColor": "#32616a",
+      "fillColor": "#e7f5f5",
+      "bold": true,
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "left"
+    },
+    "26": {
+      "textColor": "#243247",
+      "fillColor": "#ffffff",
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "left"
+    },
+    "27": {
+      "textColor": "#243247",
+      "fillColor": "#f4f7fb",
+      "fontSize": 11,
+      "verticalAlign": "middle",
+      "align": "left"
+    }
+  },
+  "formats": {
+    "1": "#,##0.00",
+    "2": "0.0%"
+  },
+  "borders": {
+    "1": {
+      "bottom": {
+        "style": "thin",
+        "color": "#dbe5eb"
+      }
+    }
+  },
+  "revisionId": "START_REVISION",
+  "uniqueFigureIds": true,
+  "settings": {
+    "locale": {
+      "name": "English (US)",
+      "code": "en_US",
+      "thousandsSeparator": ",",
+      "decimalSeparator": ".",
+      "dateFormat": "mm/dd/yyyy",
+      "timeFormat": "hh:mm:ss",
+      "formulaArgSeparator": ",",
+      "weekStart": 7
+    }
+  },
+  "pivots": {
+    "1": {
+      "type": "ODOO",
+      "fieldMatching": {
+        "customer_period": {
+          "chain": "date",
+          "type": "date",
+          "offset": 0
+        }
+      },
+      "context": {},
+      "domain": [
+        [
+          "partner_id",
+          "!=",
+          false
+        ]
+      ],
+      "id": "1",
+      "measures": [
+        {
+          "id": "hours",
+          "fieldName": "hours",
+          "userDefinedName": "Timesheet Hours"
+        },
+        {
+          "id": "revenue",
+          "fieldName": "revenue",
+          "userDefinedName": "Revenue"
+        },
+        {
+          "id": "cost",
+          "fieldName": "cost",
+          "userDefinedName": "Cost"
+        },
+        {
+          "id": "profit",
+          "fieldName": "profit",
+          "userDefinedName": "Profit"
+        },
+        {
+          "id": "Margin:sum",
+          "fieldName": "Margin",
+          "aggregator": "sum",
+          "userDefinedName": "Margin",
+          "computedBy": {
+            "sheetId": "customer_dashboard",
+            "formula": "=IFERROR(profit/revenue)"
+          },
+          "format": "0.0%"
+        }
+      ],
+      "model": "profitability.report",
+      "name": "Customer Profitability",
+      "sortedColumn": {
+        "measure": "profit",
+        "order": "desc",
+        "domain": []
+      },
+      "formulaId": "1",
+      "columns": [],
+      "rows": [
+        {
+          "fieldName": "partner_id"
+        }
+      ]
+    },
+    "2": {
+      "type": "ODOO",
+      "fieldMatching": {
+        "customer_period": {
+          "chain": "date",
+          "type": "date",
+          "offset": 0
+        }
+      },
+      "context": {},
+      "domain": [
+        [
+          "partner_id",
+          "!=",
+          false
+        ]
+      ],
+      "id": "2",
+      "measures": [
+        {
+          "id": "profit",
+          "fieldName": "profit",
+          "userDefinedName": "Profit"
+        }
+      ],
+      "model": "profitability.report",
+      "name": "Top Profitable Customers",
+      "sortedColumn": {
+        "measure": "profit",
+        "order": "desc",
+        "domain": []
+      },
+      "formulaId": "2",
+      "columns": [],
+      "rows": [
+        {
+          "fieldName": "partner_id"
+        }
+      ]
+    },
+    "3": {
+      "type": "ODOO",
+      "fieldMatching": {
+        "customer_period": {
+          "chain": "date",
+          "type": "date",
+          "offset": 0
+        }
+      },
+      "context": {},
+      "domain": [
+        "&",
+        [
+          "partner_id",
+          "!=",
+          false
+        ],
+        [
+          "profit",
+          "<",
+          0
+        ]
+      ],
+      "id": "3",
+      "measures": [
+        {
+          "id": "revenue",
+          "fieldName": "revenue",
+          "userDefinedName": "Revenue"
+        },
+        {
+          "id": "cost",
+          "fieldName": "cost",
+          "userDefinedName": "Cost"
+        },
+        {
+          "id": "profit",
+          "fieldName": "profit",
+          "userDefinedName": "Loss"
+        }
+      ],
+      "model": "profitability.report",
+      "name": "Loss-Making Customers",
+      "sortedColumn": {
+        "measure": "profit",
+        "order": "asc",
+        "domain": []
+      },
+      "formulaId": "3",
+      "columns": [],
+      "rows": [
+        {
+          "fieldName": "partner_id"
+        }
+      ]
+    },
+    "4": {
+      "type": "ODOO",
+      "fieldMatching": {
+        "customer_period": {
+          "chain": "date",
+          "type": "date",
+          "offset": 0
+        }
+      },
+      "context": {},
+      "domain": [
+        [
+          "partner_id",
+          "!=",
+          false
+        ]
+      ],
+      "id": "4",
+      "measures": [
+        {
+          "id": "hours",
+          "fieldName": "hours",
+          "userDefinedName": "Hours"
+        },
+        {
+          "id": "revenue",
+          "fieldName": "revenue",
+          "userDefinedName": "Revenue"
+        },
+        {
+          "id": "cost",
+          "fieldName": "cost",
+          "userDefinedName": "Cost"
+        },
+        {
+          "id": "profit",
+          "fieldName": "profit",
+          "userDefinedName": "Profit"
+        },
+        {
+          "id": "Revenue per Hour:sum",
+          "fieldName": "Revenue per Hour",
+          "aggregator": "sum",
+          "userDefinedName": "Revenue/hr",
+          "computedBy": {
+            "sheetId": "customer_dashboard",
+            "formula": "=IFERROR(revenue/hours)"
+          }
+        },
+        {
+          "id": "Cost per Hour:sum",
+          "fieldName": "Cost per Hour",
+          "aggregator": "sum",
+          "userDefinedName": "Cost/hr",
+          "computedBy": {
+            "sheetId": "customer_dashboard",
+            "formula": "=IFERROR(cost/hours)"
+          }
+        },
+        {
+          "id": "Profit per Hour:sum",
+          "fieldName": "Profit per Hour",
+          "aggregator": "sum",
+          "userDefinedName": "Profit/hr",
+          "computedBy": {
+            "sheetId": "customer_dashboard",
+            "formula": "=IFERROR(profit/hours)"
+          }
+        }
+      ],
+      "model": "profitability.report",
+      "name": "Customer Hours Analysis",
+      "sortedColumn": {
+        "measure": "hours",
+        "order": "desc",
+        "domain": []
+      },
+      "formulaId": "4",
+      "columns": [],
+      "rows": [
+        {
+          "fieldName": "partner_id"
+        }
+      ]
+    }
+  },
+  "pivotNextId": 5,
+  "customTableStyles": {},
+  "globalFilters": [
+    {
+      "id": "customer_period",
+      "type": "date",
+      "label": "Period"
+    }
+  ],
+  "lists": {},
+  "listNextId": 1,
+  "chartOdooMenusReferences": {}
+}

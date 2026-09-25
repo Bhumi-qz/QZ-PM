@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Upgrade cleanup for the removed custom signing integration. -->
+    <delete model="ir.ui.view"
+            search="[('key', 'in', ['qz_sale_reports.portal_customer_documents', 'qz_sale_reports.portal_document_acceptance'])]"/>
+    <template id="portal_qz_reports" inherit_id="sale.sale_order_portal_template">
+        <xpath expr="//div[@id='portal_sale_content']" position="before">
+            <section class="mb-4" id="qz_documents">
+                <h3>Sales Proposal
+                    <t t-if="sale_order.qz_add_amc">and AMC Agreement</t>
+                </h3>
+                <p>Please review the Sales Proposal
+                    <t t-if="sale_order.qz_add_amc">and AMC Agreement</t>
+                    before accepting and signing this quotation.
+                </p>
+                <div class="d-flex gap-2 mb-3">
+                    <a class="btn btn-outline-primary" target="_blank"
+                       t-att-href="sale_order.get_portal_url(suffix='/qz-document/proposal')">View Sales Proposal
+                    </a>
+                    <a t-if="sale_order.qz_add_amc" class="btn btn-outline-primary" target="_blank"
+                       t-att-href="sale_order.get_portal_url(suffix='/qz-document/amc')">View AMC Agreement
+                    </a>
+                </div>
+            </section>
+        </xpath>
+    </template>
+    <template id="portal_qz_acceptance" inherit_id="sale.sale_order_portal_sign_modal">
+        <xpath expr="//main[@id='sign-dialog']/span" position="after">
+            <p class="mt-3">By signing, you also accept the Sales Proposal
+                <t t-if="sale_order.qz_add_amc">and AMC Agreement</t>
+                available on this quotation.
+                <t t-if="sale_order.qz_add_amc">The same signature applies to both documents.</t>
+            </p>
+        </xpath>
+    </template>
+</odoo>

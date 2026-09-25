@@ -1,0 +1,172 @@
+<odoo>
+    <record id="server_action_enterprise_view_cleanup" model="ir.actions.server">
+        <field name="name">Enterprise → Community View Cleanup</field>
+        <field name="model_id" ref="base.model_ir_actions_act_window"/>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+ENTERPRISE_VIEW_TYPES = {"gantt", "grid", "cohort", "map"}
+FALLBACK_VIEW_MODE = "list,form"
+INSPECT_ACTION_ID = None
+
+changed_actions = []
+removed_views = []
+errors = []
+
+actions = env["ir.actions.act_window"].sudo().search([])
+
+for action_record in actions:
+    try:
+        old_view_mode = action_record.view_mode or ""
+        modes = [m.strip() for m in old_view_mode.split(",") if m.strip()]
+        new_modes = [m for m in modes if m not in ENTERPRISE_VIEW_TYPES]
+
+        if modes and not new_modes:
+            new_modes = FALLBACK_VIEW_MODE.split(",")
+            changed_actions.append(
+                "Action %s - %s: ALL view types were Enterprise (%s), fell back to %s"
+                % (action_record.id, action_record.name, old_view_mode, FALLBACK_VIEW_MODE)
+            )
+
+        if modes != new_modes:
+            action_record.write({"view_mode": ",".join(new_modes)})
+            changed_actions.append(
+                "Action %s - %s: view_mode %s -> %s"
+                % (action_record.id, action_record.name, old_view_mode, ",".join(new_modes))
+            )
+
+        if action_record.mobile_view_mode in ENTERPRISE_VIEW_TYPES:
+            old_mobile = action_record.mobile_view_mode
+            action_record.write({"mobile_view_mode": "kanban"})
+            changed_actions.append(
+                "Action %s - %s: mobile %s -> kanban"
+                % (action_record.id, action_record.name, old_mobile)
+            )
+
+        if action_record.view_id and action_record.view_id.type in ENTERPRISE_VIEW_TYPES:
+            old_view_name = action_record.view_id.name
+            old_view_type = action_record.view_id.type
+            action_record.write({"view_id": False})
+            changed_actions.append(
+                "Action %s - %s: cleared default view_id (%s, type %s)"
+                % (action_record.id, action_record.name, old_view_name, old_view_type)
+            )
+
+        enterprise_lines = action_record.view_ids.filtered(
+            lambda line: line.view_mode in ENTERPRISE_VIEW_TYPES
+        )
+        for line in enterprise_lines:
+            view_name = line.view_id.name if line.view_id else "<NO VIEW>"
+            removed_views.append(
+                "Action %s - %s: removed %s view (%s)"
+                % (action_record.id, action_record.name, line.view_mode, view_name)
+            )
+            line.unlink()
+
+    except Exception as error:
+        errors.append(
+            "Action %s - %s: ERROR - %s" % (action_record.id, action_record.name, error)
+        )
+        continue
+
+remaining = []
+actions = env["ir.actions.act_window"].sudo().search([])
+
+for action_record in actions:
+    modes = [m.strip() for m in (action_record.view_mode or "").split(",") if m.strip()]
+    invalid_modes = [m for m in modes if m in ENTERPRISE_VIEW_TYPES]
+    if invalid_modes:
+        remaining.append(
+            "Action %s - %s: view_mode contains %s"
+            % (action_record.id, action_record.name, ",".join(invalid_modes))
+        )
+
+    if action_record.mobile_view_mode in ENTERPRISE_VIEW_TYPES:
+        remaining.append(
+            "Action %s - %s: mobile_view_mode contains %s"
+            % (action_record.id, action_record.name, action_record.mobile_view_mode)
+        )
+
+    if action_record.view_id and action_record.view_id.type in ENTERPRISE_VIEW_TYPES:
+        remaining.append(
+            "Action %s - %s: default view_id is Enterprise type %s"
+            % (action_record.id, action_record.name, action_record.view_id.type)
+        )
+
+    invalid_lines = action_record.view_ids.filtered(
+        lambda line: line.view_mode in ENTERPRISE_VIEW_TYPES
+    )
+    for line in invalid_lines:
+        remaining.append(
+            "Action %s - %s: view line %s = %s"
+            % (action_record.id, action_record.name, line.id, line.view_mode)
+        )
+
+log("Enterprise View Cleanup Started", level="info")
+log("Changed actions: %s" % len(changed_actions), level="info")
+for item in changed_actions:
+    log(item, level="info")
+
+log("Removed action-view lines: %s" % len(removed_views), level="info")
+for item in removed_views:
+    log(item, level="info")
+
+log("Errors while processing: %s" % len(errors), level="warning" if errors else "info")
+for item in errors:
+    log(item, level="warning")
+
+log("Remaining Enterprise references: %s" % len(remaining), level="warning" if remaining else "info")
+for item in remaining:
+    log(item, level="warning")
+
+inspected_ok = False
+if INSPECT_ACTION_ID:
+    inspected = env["ir.actions.act_window"].sudo().browse(INSPECT_ACTION_ID)
+    if not inspected.exists():
+        log("Inspect: action %s does not exist." % INSPECT_ACTION_ID, level="warning")
+    else:
+        inspected_ok = True
+        inspect_lines = [
+            "Inspect: action %s - %s" % (inspected.id, inspected.name),
+            "  view_mode = %s" % inspected.view_mode,
+            "  view_id = %s" % (inspected.view_id.name if inspected.view_id else "EMPTY"),
+            "  view_ids:",
+        ]
+        for line in inspected.view_ids:
+            inspect_lines.append(
+                "    ID=%s | TYPE=%s | VIEW=%s"
+                % (line.id, line.view_mode, line.view_id.name if line.view_id else "EMPTY")
+            )
+        inspect_lines.append("  COMPUTED action.views:")
+        for view_id, view_type in inspected.views:
+            inspect_lines.append("    ID=%s | TYPE=%s" % (view_id, view_type))
+        log("\n".join(inspect_lines), level="info")
+
+if errors:
+    message = (
+        "Cleanup finished with %s error(s) and %s remaining Enterprise reference(s). Check the server log."
+        % (len(errors), len(remaining))
+    )
+    notification_type = "danger"
+elif remaining:
+    message = "Cleanup completed, but %s Enterprise view references remain. Check the server log." % len(remaining)
+    notification_type = "warning"
+else:
+    message = "Cleanup completed successfully. No gantt, grid, cohort, or map references remain in Window Actions."
+    notification_type = "success"
+
+if inspected_ok:
+    message += "\n\nAlso inspected action %s - see server log for details." % INSPECT_ACTION_ID
+
+action = {
+    "type": "ir.actions.client",
+    "tag": "display_notification",
+    "params": {
+        "title": "Enterprise → Community Cleanup",
+        "message": message,
+        "type": notification_type,
+        "sticky": True,
+    },
+}
+]]></field>
+    </record>
+</odoo>

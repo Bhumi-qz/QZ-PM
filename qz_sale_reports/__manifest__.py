@@ -1,0 +1,20 @@
+{
+    'name': 'QZ Sales Reports',
+    'version': '19.0.1.0.0',
+    'category': 'Sales/Sales',
+    'summary': 'QZ sales proposal with quotation field mapping',
+    'author': 'Quiz Infomatics',
+    'license': 'LGPL-3',
+    'depends': ['sale_management'],
+    'data': [
+        'views/sale_order_views.xml',
+        'views/portal_templates.xml',
+        'views/product_template_views.xml',
+        'report/sales_report.xml',
+        'report/proposal_content.xml',
+        'report/proposal_report.xml',
+        'report/amc_content.xml',
+        'report/amc_report.xml',
+    ],
+    'installable': True,
+}
