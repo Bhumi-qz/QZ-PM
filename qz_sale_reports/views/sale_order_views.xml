@@ -27,19 +27,29 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page name="propsed_solution_details" string="Proposed Solution Details and Scope">
-                    <field name="qz_propsed_solution_details" required="True"/>
+                    <field name="qz_propsed_solution_details"
+                           required="True"
+                           placeholder="Enter proposed solution details and scope..."/>
                 </page>
                 <page name="scope_html" string="Implementation Scope">
-                    <field name="qz_scope_html" required="True"/>
+                    <field name="qz_scope_html"
+                           required="True"
+                           placeholder="Enter implementation scope..."/>
                 </page>
                 <page name="implementation_overview" string="Project Implementation Overview">
-                    <field name="qz_implementation_overview" required="True"/>
+                    <field name="qz_implementation_overview"
+                           required="True"
+                           placeholder="Enter project implementation overview..."/>
                 </page>
                 <page name="out_of_scope_html" string="Out of Scope Tasks">
-                    <field name="qz_out_of_scope_html" required="True"/>
+                    <field name="qz_out_of_scope_html"
+                           required="True"
+                           placeholder="Enter out of scope tasks..."/>
                 </page>
                 <page name="assumptions_html" string="Project Assumptions">
-                    <field name="qz_assumptions_html" required="True"/>
+                    <field name="qz_assumptions_html"
+                           required="True"
+                           placeholder="Enter project assumptions..."/>
                 </page>
                 <page name="qz_sales_proposal" string="Sales Proposal">
                     <group>

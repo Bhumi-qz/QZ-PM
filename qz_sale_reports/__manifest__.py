@@ -1,6 +1,6 @@
 {
     'name': 'QZ Sales Reports',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0.1',
     'category': 'Sales/Sales',
     'summary': 'QZ sales proposal with quotation field mapping',
     'author': 'Quiz Infomatics',
